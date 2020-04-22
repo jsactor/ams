@@ -1,0 +1,27 @@
+{
+  "name": "jsActor",
+  "version": "1.0.1",
+  "description": "Actor Managment System with Event Message Management",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server"
+  },
+  "keywords": [
+    "actor",
+    "manager",
+    "system",
+    "event",
+    "message"
+  ],
+  "author": "Elena Shurpo",
+  "license": "MIT",
+  "dependencies": {
+    "@hapi/hapi": "^18.3.1",
+    "@hapi/inert": "^5.2.0",
+    "hapi": "^18.1.0"
+  },
+  "devDependencies": {
+    "mustache": "^2.3.0"
+  }
+}

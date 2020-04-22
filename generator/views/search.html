@@ -1,0 +1,13 @@
+		<div id="{{id}}" class="{{type}} {{css}} {{#disabled}}disabled{{/disabled}}">
+			<label for="{{id}}_input"></label>
+			<input type="search" id="{{id}}_input" 
+			       name="{{name}}"
+			       {{#disabled}}disabled{{/disabled}} 
+			       {{#value}}value="{{value}}"{{/value}}
+			       {{#placeholder}}placeholder="{{placeholder}}"{{/placeholder}} 
+			       {{#accept}}accept="{{accept}}"{{/accept}}
+			       {{#maxlength}}maxlength="{{maxlength}}"{{/maxlength}} 
+			       {{#list}}list="{{id}}_datalist"{{/lists}} >
+			       <datalist id="{{id}}_datalist"></datalist>
+      <p class="error"></p>      
+		</div>

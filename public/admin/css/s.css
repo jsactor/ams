@@ -1,0 +1,318 @@
+
+/* purple #736BFB */
+/* light-blue #00BFFF */
+
+body, div, p, a, input, button, select {
+	font-size: .965rem;
+}
+
+h1 {
+	color: #f00;
+	font-weight: bold;
+}
+
+fieldset div {
+	margin-top: .1rem;
+	margin-bottom: .1rem;
+	display: initial;
+}
+
+select[multiple]{
+   	height: 5rem;
+}
+label {
+	font-weight: bold;
+  width: 6rem;
+  text-align: right;
+  margin-bottom: 0;
+  margin-right: .1rem;
+  display: initial;
+}
+
+.html {
+	width: 94%;
+	margin: 0 auto;
+}
+
+.disabled {
+	color: #aaa;
+}
+
+.hidden {
+	display: none;
+}
+
+.error {
+  display: none;
+  font-size: .85rem;
+	color: #f00;
+  padding-top: .3rem;
+  padding-bottom: .5rem;
+  margin-bottom: 0;
+  margin-left: 5.3rem;
+}
+
+.section, .section .group div {
+	margin-top: .5rem;
+	margin-bottom: .5rem;
+}
+
+.group h2 {
+	margin-top: 2rem;
+  margin-bottom: 1.5rem;
+  
+  /*
+  border-top: 8px solid #ACC9DA;
+  color: #a1bccc;
+  */
+  /* #acc9da91 */
+ 
+ /* 
+  border-top: 8px solid #d7dee2;
+  color: #c7ced2;
+*/
+
+  border-top: 8px solid #8c9fb3;
+  color: #778899;
+
+}
+
+.sampletree {
+	clear: both;
+}
+
+.render_tree, 
+.get_tree {
+  margin-right:.5rem;
+}
+
+.anchor {
+  margin: 0.1rem .27rem 0.1rem 0;
+}
+
+.anchor a {
+  padding: .25rem .3rem .31rem .3rem;
+  color: #fff;
+  background-color: #98abbf; /* #ACC9DA; */ /* #BCD4E7; /* #84bfff; */
+  vertical-align: text-top; 
+  font-weight: 500;
+}
+
+.select select {
+  width: 10.8rem;
+}
+   
+.input label,
+.checkbox label,
+.radio label,
+.select label {
+  padding-left: 0;
+  width: 5rem;
+  text-align: right;
+  display: inline-block;
+ }
+
+.fieldset .checkbox label,
+.fieldset .radio label {
+}  
+
+.fieldset .input label,
+.fieldset .select label  {
+  display: none;
+}
+
+.add {
+  display: block;
+  text-align: center;
+}
+
+.add button {
+	width: 15rem;
+}
+
+.clone_test .checkbox,
+.clone_test .input,
+.clone_test .radio,
+.clone_test .select {
+  display: inline-block;
+  margin-right: 1rem;
+}
+
+.info_action p {
+	 font-style: italic;
+	 font-size: .9rem;
+}
+
+/*
+a, button, h1, h2, h3, h4, label, title {
+	visibility: hidden;
+}
+*/
+
+
+
+/* CHART  */
+
+.chart {
+	width: 900px; 
+	height: 600px;
+}
+
+.section .group div.chart {
+	margin-top: -2rem;
+}
+
+/* FANCYTREE  */
+
+  span.drag-source {
+    border: 1px solid grey;
+    border-radius: 3px;
+    padding: 2px;
+    background-color: silver
+  }
+
+  ul.fancytree-container {
+    min-height: 200px;
+    overflow-y: scroll;
+  }
+
+  span.fancytree-node.fancytree-drag-source {
+    outline: 1px dotted grey;
+  }
+/*
+  span.fancytree-node.fancytree-drag-source.fancytree-drag-remove {
+    opacity: 0.4;
+  }
+  span.fancytree-node.fancytree-drop-over {
+    outline: 1px solid gray;
+  }
+*/
+  span.fancytree-node.fancytree-drop-accept {
+    outline: 1px dotted green;
+  }
+  span.fancytree-node.fancytree-drop-reject {
+    outline: 1px dotted red;
+  }
+  
+	span.fancytree-icon, 
+	span.fancytree-checkbox, 
+	span.fancytree-expander, 
+	span.fancytree-custom-icon {
+		margin: 6px 0 0 3px;
+	}
+	
+	span.fancytree-title {
+		margin: 2px 0 0 3px;
+	}
+
+	.fancytree-treefocus span.fancytree-selected span.fancytree-title, 
+	.fancytree-treefocus span.fancytree-active span.fancytree-title {
+	  	font-size: 14px;
+	  	background: #eec;
+	  	color: #000;
+	  	border: #eec 1px solid;
+	  	font-weight: normal;
+	}
+		
+	/*
+		first "root" node is hidden but it'a required to send 
+		a correct json object to generator 
+	.plugin > ul > li > span {
+    display: none;
+	}
+	*/
+	
+  .ui-menu {
+    width: 240px;
+    font-size: 14px;
+  }
+  .ui-menu kbd { /* Keyboard shortcuts for ui-contextmenu titles */
+    padding: 0;
+    font-size: 14px;
+    color: #000;
+    background-color: transparent;
+    border-radius: 0;
+    float: right;
+  }
+  
+	.ui-state-active, .ui-state-active:hover,
+	.ui-widget-content .ui-state-active,
+	.ui-widget-content .ui-state-active:hover  {
+  		font-size: 14px;
+  		background: #eec;
+  		color: #000;
+  		border: #eec 1px solid;
+  		font-weight: normal;
+	}
+	
+/*  //FANCYTREE  */
+
+
+/* DATATABLES */
+.dataTable {
+	width: 100%;
+}
+
+.dataTable td {
+  vertical-align: top;  
+} 
+
+.dataTable td ul {
+  padding-inline-start: 20px;
+}
+	
+.section .group div.dataTables_length,
+.section .group div.dataTables_filter {
+	width: 50%;
+	margin-bottom: 2rem;
+}
+
+.dataTables_filter input {
+	width: 20rem;
+}
+
+.dataTables_length label,
+.dataTables_filter label {
+  width: 100%;
+}
+
+.dataTables_length label {
+	text-align: unset;
+}
+
+table.dataTable thead th {
+	background-color: #f3f3f3;
+}
+
+table.dataTable tbody td > ul > li  {
+  cursor: pointer;
+}
+
+table.dataTable tbody td > ul > li b:hover {
+	color: #76b302;
+}
+
+/*
+table.dataTable thead th.sorting:before, 
+table.dataTable thead th.sorting:after,
+table.dataTable thead th.sorting_asc:before, 
+table.dataTable thead th.sorting_asc:after,
+table.dataTable thead th.sorting_desc:before,
+table.dataTable thead th.sorting_desc:after {
+
+  bottom: 0.04em	
+}
+
+table.dataTable thead th.sorting:before,
+table.dataTable thead th.sorting_asc:before,
+table.dataTable thead th.sorting_desc:before {
+	right: 1.3em;
+}
+*/
+
+
+@media all and (display-mode: standalone) {
+  body {
+    background-color: #fff;
+  }
+}
