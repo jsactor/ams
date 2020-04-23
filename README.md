@@ -114,7 +114,7 @@ jsActor app loads in about a second or less. With a browser cache on even less t
 - Web workers: delegate computation to multithread
 - More reusable actions
 
-**Your long read should be rewarded. We want to give you a free app development* if you:**
+**Your long read should be rewarded. We want to give you a free app development(*) if you:**
 - have a great, useful or complex app idea
 - are open to our implementation suggestions
 - have a detailed BRD in English with complete set of wireframes
@@ -125,4 +125,4 @@ Please keep in mind that we are only at the beginning of our journey and may not
 
 Our target is building a rich library of actions and make it available to everyone for free. One day even a fancy animation will be working out of the box.
 
- *Free app development includes web application only and mockup JSON data files to send data both ways via Ajax calls. No server or backend development will be provided.
+(*)Free app development includes web application only and mockup JSON data files to send data both ways via Ajax calls. No server or backend development will be provided.
