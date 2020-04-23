@@ -176,7 +176,6 @@ var build_json = (fancy_tree) => {
 }
 
 const save_to_file =  (buffer, path) => {
-	console.log('/// PATH /// ' +  path);
 	if (!buffer || !path) return;
 	const b = buffer;
 	const p = path;
