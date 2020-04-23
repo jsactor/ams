@@ -1,6 +1,6 @@
 # jsActor AMS
 
-Actor Management System with unique automated Event Message Management based on the [Actor Model](https://en.wikipedia.org/wiki/Actor_model) designed by the American computer scientist [Carl Hewitt](https://en.wikipedia.org/wiki/Carl_Hewitt) in 1973.
+Actor Management System with unique automated [Event Message Management](#event-message-management) based on the [Actor Model](https://en.wikipedia.org/wiki/Actor_model) designed by the American computer scientist [Carl Hewitt](https://en.wikipedia.org/wiki/Carl_Hewitt) in 1973.
 
 Your time-to-market, cost, development time and codebase can be reduced by as much as 80%.
 
@@ -112,7 +112,7 @@ jsActor app loads in about a second or less. With a browser cache on even less t
 - Web workers: delegate computation to multithread
 - More reusable actions
 
-Your long read should be rewarded. We want to give you a free app development* if you:
+** Your long read should be rewarded. We want to give you a free app development* if you:**
 - have a great, useful or complex app idea
 - are open to our implementation suggestions
 - have a detailed BRD in English with complete set of wireframes
