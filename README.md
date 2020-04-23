@@ -6,6 +6,8 @@ Your time-to-market, cost, development time and codebase can be reduced by as mu
 
 Your development becomes mostly configuration and copy&paste.
 
+**Installation instructions are coming up**
+
 ## Freedom
 
 - No complex frameworks.
@@ -112,7 +114,7 @@ jsActor app loads in about a second or less. With a browser cache on even less t
 - Web workers: delegate computation to multithread
 - More reusable actions
 
-** Your long read should be rewarded. We want to give you a free app development* if you:**
+**Your long read should be rewarded. We want to give you a free app development* if you:**
 - have a great, useful or complex app idea
 - are open to our implementation suggestions
 - have a detailed BRD in English with complete set of wireframes
