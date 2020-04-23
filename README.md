@@ -70,7 +70,7 @@ jsActor app loads in about a second or less. With a browser cache on even less t
 - Automatic data binding: just point your component to a correct JSON object.
 - Collect complete data from your application in JSON from GUI app tree with a single click or any other event.
 
-Event Message Management
+## Event Message Management
 
 - This is totally exciting and totally different from what everybody is doing today.
 - Easily orchestrate events and action queues with a built-in Director.
