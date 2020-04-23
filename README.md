@@ -21,7 +21,7 @@ Your development becomes mostly configuration and copy&paste.
 
 ## Angular, React, Vue, etc.
 
-You favorite framework development can be automated with the same generative approach and Event Message Management.
+Your favorite framework development can be automated with the same generative approach and Event Message Management.
 
 In fact this system allows using any third-party web components and behaviours by converting them into actors and actions. Once a browser event is registered to an actor you have a full conrol over your favorite web component. It can do everyhing other actors do, and you can enjoy simple drag&drop development along with full application map and code reusabilty chart to track your effort.
 
