@@ -2,22 +2,21 @@
   "short_name": "jsActor",
   "name": "jsActor: AMS",
   "description": "Fast, small, reusable and scalable Actor Management System",
-  "display" : "fullscreen",
+  "display": "standalone",
   "icons": [
     {
-      "src": "/admin/favicon_io/icon-192x192.png",
-      "type": "image/png",
-      "sizes": "192x192"
+        "src": "/admin/favicon_io/icon-192x192.png",
+        "type": "image/png",
+        "sizes": "192x192"
     },
     {
-      "src": "/admin/favicon_io/icon-512x512.png",
-      "type": "image/png",
-      "sizes": "512x512"
+        "src": "/admin/favicon_io/icon-512x512.png",
+        "type": "image/png",
+        "sizes": "512x512"
     }
-  ],
+ ],
   "start_url": "/ams/index.html",
   "background_color": "#FFFFFF",
-  "display": "standalone",
   "scope": "/ams/",
   "theme_color": "#FFFFFF"
 }
