@@ -56,7 +56,7 @@ appn.action.send = Action_Send = class extends Action {
 	    ', TRGT = ' + item.action.trgt + 
 	    ', ROLE = ' + item.action.role);      
 	}
-    mm.director = new Director(queue);
+    mm.director = new Director(queue);    
     mm.director.run(true);
   };
 
@@ -118,8 +118,10 @@ appn.action.send = Action_Send = class extends Action {
         });
       });
     });
-    if(action_queue.length <= 0) return;
-    mm.director = new Director(action_queue);
+    if(!action_queue.length) return;
+    // add action_queue to the beginning of the array
+    // keep the previous queue of 'send' actions
+    mm.director.queue = action_queue.concat(mm.director.queue);
     mm.director.run(true);
   };
 };

@@ -151,15 +151,25 @@ appn.role = {
         evnt : 'ja_app',
         valu: true
       },
-//ES REMINDER this may be not an issue as target can be 
-// set higher in app tree to cover bigger scope
-// "fix sequential 'send' actions to different targets" 
       {
   		actn : 'send',
   		evnt : 'click',
   		trgt : 'app',
   		mssg : 'ja_add'
       }
+	]
+  },
+
+  alt : {
+	actions : 
+	[
+	  {
+	    actn : 'show',
+	    evnt : 'ja_ctrl ja_f',
+	    trgt : 'type',
+	    rule : 'is_value',
+	    valu : mm.type_alt
+	  }
 	]
   },
 
@@ -326,7 +336,7 @@ appn.role = {
         wait : true,
         path : 'json_save',
         rqst : 'get_tree',
-        key : 'tree'
+        key  : 'tree'
       }, 
       {
         actn : 'ajax',
@@ -518,6 +528,19 @@ appn.role = {
 	]	
   },
   
+  height : {
+	actions : 
+	[
+	  {
+	    actn : 'show',
+	    evnt : 'ja_ctrl ja_f',
+	    trgt : 'type',
+	    rule : 'is_value',
+	    valu : mm.type_height
+	  }
+	]
+  },
+
   href : {
 	actions : 
 	[
@@ -529,6 +552,24 @@ appn.role = {
 	    valu : mm.type_href
 	  }
 	]
+  },
+  
+  input_type : {
+	actions : 
+	[
+	  {
+	      actn : 'options',
+	      evnt : 'ja_app',
+	      json : 'input_type'
+	  },
+	  {
+	    actn : 'show',
+		evnt : 'ja_ctrl ja_f',
+		trgt : 'type',
+		rule : 'is_value',
+		valu : mm.type_input_type
+	  }
+    ]
   },
   
   locale : {
@@ -811,6 +852,20 @@ appn.role = {
     ]
   },
   
+  width : {
+	actions : 
+	[
+	  {
+	    actn : 'show',
+	    evnt : 'ja_ctrl ja_f',
+	    trgt : 'type',
+	    rule : 'is_value',
+	    valu : mm.type_width
+	  }
+	]
+  },
+
+
   // ROLES for cloneable fieldset
   input_label: {},
 

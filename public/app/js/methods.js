@@ -665,10 +665,24 @@ appn.methods.actor = {
   },
   
   /** VALIDATION RULES **/
+  
   v_required: function() {
     var actor = this;
     return actor._get_value() ? true : false;
   },
+  
+  v_email: function() {
+	var actor = this;
+	var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    return actor._get_value().match(re) ? true : false;
+  },
+  
+  v_password: function() {
+	var actor = this;
+	var re = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
+	return actor._get_value().match(re) ? true : false;
+  },
+  
   /** // VALIDATION RULES **/
 };
 
@@ -717,6 +731,7 @@ appn.methods.select = {
 appn.methods.input = {
 
   /** VALIDATION RULES **/
+
   v_name_unique: function() {
     var actor = this;
     var v = actor._get_value();

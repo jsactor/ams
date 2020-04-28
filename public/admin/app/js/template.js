@@ -69,10 +69,16 @@ mm.template.header =
 	'{{{child}}}' +
 	'</header>';
 
+mm.template.img =
+	'<div id="{{id}}" class="{{type}} {{css}}"> ' +
+	'<img id="{{id}}_a" src="{{href}}" width="{{width}}" height="{{height}}" alt="{{alt}}" > ' +
+	'</div>';
+
 mm.template.input =
 	'<div id="{{id}}" class="{{type}} {{css}} {{#disabled}}disabled{{/disabled}}"> ' +
 	'<label for="{{id}}_input"></label> ' +
-	'<input type="text" id="{{id}}_input" name="{{name}}" ' +
+	'<input type="{{#input_type}}{{input_type}}{{/input_type}}{{^input_type}}text{{/input_type}}" ' + 
+	'name="{{name}}" ' +
 	'{{#disabled}}disabled{{/disabled}} ' +
 	'{{#value}}value="{{value}}"{{/value}} ' +
 	'{{#placeholder}}placeholder="{{placeholder}}"{{/placeholder}} ' +

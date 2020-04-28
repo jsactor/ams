@@ -40,6 +40,7 @@ mm.lang = {
 		__add: 'add',
 		__add_to_home_screen: 'Add to Home screen',
 		__admin_panel: 'Admin panel',
+		__alt: 'alt',
 		__app: 'APP',
 		__app_introduction_text: 'Please use this Sample application to start building your own app in Admin panel. ',
 		__app_title: 'jsActor',
@@ -60,8 +61,10 @@ mm.lang = {
 		__form: 'Form',
 		__french: 'French',
 		__heading: 'heading',
+		__height : 'height',
 		__href: 'href',
 		__id: 'id',
+		__input_type: 'input type',
 		__label: 'label',
 		__locale: 'locale',
 		__maxlength: 'maxlength',
@@ -82,6 +85,7 @@ mm.lang = {
 		__test: 'Test',
 		__tree: 'Tree',
 		__type: 'type',
+		__width : 'width',
 	},
 	
 	fr : {
@@ -121,6 +125,7 @@ mm.lang = {
 		__add: 'Добавить',
 		__add_to_home_screen: 'Добавить приложение',
 		__admin_panel: 'Панель администратора',
+		__alt: 'название',
 		__app: 'Приложение',
 		__app_introduction_text: 'Пожалуйста используйте это приложение, чтобы построить ваше собственное с помошью Панели администартора.',
 		__app_title: 'jsActor',
@@ -141,8 +146,10 @@ mm.lang = {
 		__form: 'Форма',
 		__french: 'Французский',
 		__heading: 'заголовок',
+		__height : 'высота',
 		__href: 'href',
 		__id: 'идентификатор',
+		__input_type: 'input type',
 		__label: 'название',
 		__locale: 'язык',
 		__maxlength: 'максимальная величина',
@@ -162,6 +169,6 @@ mm.lang = {
 		__test: 'Тест',
 		__tree: 'Дерево',
 		__type: 'тип',
-
+		__width : 'ширина',
 	}	
 };

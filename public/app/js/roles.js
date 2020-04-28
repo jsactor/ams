@@ -98,9 +98,6 @@ appn.role = {
         evnt : 'ja_app',
         valu: true
       },
-//ES REMINDER this may be not an issue as target can be 
-// set higher in app tree to cover bigger scope
-// "fix sequential 'send' actions to different targets" 
       {
   		actn : 'send',
   		evnt : 'click',

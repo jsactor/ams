@@ -66,18 +66,12 @@ class Action {
 class Director {
   constructor(queue) {
 	this.queue = queue || [];
-	this.current = 0;
   };
 	
   proceed() {
-	// mm.director
 	var d = this;
-	if(!d.queue) return;
-	if(d.queue.length === d.current + 1 ) {
-	  return;
-	}
-	d.current++;
-	var na = d.queue[d.current];
+	if(!d.queue || !d.queue.length) return;
+	var na = d.queue[0];
 	na.next = true;
 	d.run(na.next);
   };
@@ -95,15 +89,17 @@ class Director {
 	  var action = new appn.action[actor.action.actn](actor, event);
 	  action.next = next;			
 	  if (!action.wait) {
+		mm.director.queue.shift();
 		action.perform();	
 		action.console();
 		mm.director.proceed();
 	  } else {
+		mm.director.queue.shift();
 		action.perform();
 		action.console();
 	  }
 	}
-	run_action(queue[d.current]);	
+	run_action(queue[0]);	
 	mm.t2 = performance.now();
 //		console.log((mm.t2 - mm.t0) + " milliseconds.");
   };

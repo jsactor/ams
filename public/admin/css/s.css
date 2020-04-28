@@ -6,6 +6,10 @@ body, div, p, a, input, button, select {
 	font-size: .965rem;
 }
 
+input, button, select {
+  border: thin solid #ccc;
+}
+
 h1 {
 	color: #f00;
 	font-weight: bold;
@@ -40,16 +44,6 @@ label {
 
 .hidden {
 	display: none;
-}
-
-.error {
-  display: none;
-  font-size: .85rem;
-	color: #f00;
-  padding-top: .3rem;
-  padding-bottom: .5rem;
-  margin-bottom: 0;
-  margin-left: 5.3rem;
 }
 
 .section, .section .group div {
@@ -149,6 +143,21 @@ a, button, h1, h2, h3, h4, label, title {
 }
 */
 
+.error input,
+.error select,
+.error textarea {
+  border: 1px solid #F00;
+}
+
+p.error {
+  display: none;
+  font-size: .85rem;
+  color: #F00;
+  padding-top: .3rem;
+  padding-bottom: .5rem;
+  margin-bottom: 0;
+  margin-left: 5.3rem;
+}
 
 
 /* CHART  */

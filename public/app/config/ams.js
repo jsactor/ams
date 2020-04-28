@@ -84,9 +84,15 @@ ac.html = class Actor_Html extends Actor {
   } 
 }
 
-ac.input = class Actor_Input extends Actor {
+ac.img = class Actor_Img extends Actor {
   constructor(data, type, role) {
   	super(data, type, role);
+  }
+}
+
+ac.input = class Actor_Input extends Actor {
+  constructor(data, type, role) {
+    super(data, type, role);
   }
 }
 

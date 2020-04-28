@@ -95,6 +95,11 @@ appn.type = {
 			},
 			_set_error: function(error_message) {
 				document.querySelector('#' + this.id + ' ' + this.selector.error).textContent = error_message;
+				if(error_message) {
+					document.querySelector('#' + this.id).classList.add("error");
+				} else {
+					document.querySelector('#' + this.id).classList.remove("error");					
+				}
 			},
 			_show_error: function(rule) {
 				var item = document.querySelector('#' + this.id + ' ' + this.selector.error);
@@ -185,6 +190,13 @@ appn.type = {
 			}
 		}
 	},
+	img: {
+		selector: {
+			event: {
+			}
+		},		
+		method: {}
+	},
 	input: {		
 		selector: {
 			event: {
@@ -218,6 +230,11 @@ appn.type = {
 			},
 			_set_error: function(error_message) {
 				document.querySelector('#' + this.id + ' ' + this.selector.error).textContent = error_message;
+				if(error_message) {
+					document.querySelector('#' + this.id).classList.add("error");
+				} else {
+					document.querySelector('#' + this.id).classList.remove("error");					
+				}
 			},
 			_show_error: function(rule) {
 				var item = document.querySelector('#' + this.id + ' ' + this.selector.error);
@@ -279,6 +296,11 @@ appn.type = {
 			},
 			_set_error: function(error_message) {
 				document.querySelector('#' + this.id + ' ' + this.selector.error).textContent = error_message;
+				if(error_message) {
+					document.querySelector('#' + this.id).classList.add("error");
+				} else {
+					document.querySelector('#' + this.id).classList.remove("error");					
+				}
 			},
 			_show_error: function(rule) {
 				var a_id = this._get_last_radio_id();				
@@ -332,6 +354,11 @@ appn.type = {
 			},
 			_set_error: function(error_message) {
 				document.querySelector('#' + this.id + ' ' + this.selector.error).textContent = error_message;
+				if(error_message) {
+					document.querySelector('#' + this.id).classList.add("error");
+				} else {
+					document.querySelector('#' + this.id).classList.remove("error");					
+				}
 			},
 			_show_error: function(rule) {
 				var item = document.querySelector('#' + this.id + ' ' + this.selector.error);
@@ -392,6 +419,11 @@ appn.type = {
 			},
 			_set_error: function(error_message) {
 				document.querySelector('#' + this.id + ' ' + this.selector.error).textContent = error_message;
+				if(error_message) {
+					document.querySelector('#' + this.id).classList.add("error");
+				} else {
+					document.querySelector('#' + this.id).classList.remove("error");					
+				}
 			},
 			_show_error: function(rule) {
 				var item = document.querySelector('#' + this.id + ' ' + this.selector.error);
@@ -466,6 +498,11 @@ appn.type = {
 			},
 			_set_error: function(error_message) {
 				document.querySelector('#' + this.id + ' ' + this.selector.error).textContent = error_message;
+				if(error_message) {
+					document.querySelector('#' + this.id).classList.add("error");
+				} else {
+					document.querySelector('#' + this.id).classList.remove("error");					
+				}
 			},
 			_show_error: function(rule) {
 				var item = document.querySelector('#' + this.id + ' ' + this.selector.error);

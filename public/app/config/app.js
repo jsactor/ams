@@ -138,7 +138,11 @@ mm.type_disabled 	= ['button', 'input', 'search', 'select', 'radio', 'checkbox']
 mm.type_error 		= ['input', 'search', 'select', 'radio', 'checkbox'];
 mm.type_file 		= ['fieldset', 'group', 'header', 'panel', 'plugin', 'section', 'tree'];
 mm.type_a 			= ['anchor'];
-mm.type_href 		= ['anchor'];
+mm.type_alt 		= ['img'];
+mm.type_heading 	= ['string'];
+mm.type_height 		= ['img'];
+mm.type_href 		= ['anchor', 'img'];
+mm.type_input_type	= ['input'];
 mm.type_label 		= ['anchor', 'button', 'chart', 'checkbox', 'group', 'html', 'input', 'search', 'select', 'string', 'textarea', 'th', 'radio'];
 mm.type_locale 		= ['html'];
 mm.type_maxlength 	= ['input', 'search', 'textarea'];
@@ -146,7 +150,7 @@ mm.type_placeholder = ['input', 'search'];
 mm.type_required 	= ['input', 'search', 'select', 'radio', 'checkbox'];
 mm.type_model 		= ['fieldset', 'group', 'panel', 'section'];
 mm.type_radio 		= ['radio'];
-mm.type_heading 	= ['string'];
+mm.type_width		= ['img'];
 
 mm.options.type = [
 	{value: '', text: 'Select', selected: true},
@@ -159,6 +163,7 @@ mm.options.type = [
 	{value: 'group', text: 'group'},
 	{value: 'header', text: 'header'},
 	{value: 'html', text: 'html'},
+	{value: 'img', text: 'img'},
 	{value: 'input', text: 'input'},
 	{value: 'panel', text: 'panel'},
 	{value: 'plugin', text: 'plugin'},
@@ -169,6 +174,41 @@ mm.options.type = [
 	{value: 'string', text: 'string'},
 	{value: 'th', text: 'th'},
 	{value: 'tree', text: 'tree'}
+];
+
+//not in use currently
+mm.options.input_types = [
+	{value: '', text: 'Select', selected: true},
+	{value: 'button', text: 'button'},
+	{value: 'checkbox', text: 'checkbox'},
+	{value: 'color', text: 'color'},
+	{value: 'date', text: 'date'},
+	{value: 'datetime-local', text: 'datetime-local'},
+	{value: 'email', text: 'email'},
+	{value: 'file', text: 'file'},
+	{value: 'hidden', text: 'hidden'},
+	{value: 'image', text: 'image'},
+	{value: 'month', text: 'month'},
+	{value: 'number', text: 'number'},
+	{value: 'password', text: 'password'},
+	{value: 'radio', text: 'radio'},
+	{value: 'range', text: 'range'},
+	{value: 'reset', text: 'reset'},
+	{value: 'search', text: 'search'},
+	{value: 'submit', text: 'submit'},
+	{value: 'tel', text: 'tel'},
+	{value: 'text', text: 'text'},
+	{value: 'time', text: 'time'},
+	{value: 'url', text: 'url'},
+	{value: 'week', text: 'week'}
+];
+
+mm.options.input_type = [
+	{value: '', text: 'Select', selected: true},
+	{value: 'color', text: 'color'},
+	{value: 'file', text: 'file'},
+	{value: 'hidden', text: 'hidden'},
+	{value: 'password', text: 'password'}
 ];
 
 mm.options.boolean = [

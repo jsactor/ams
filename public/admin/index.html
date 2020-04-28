@@ -18,7 +18,7 @@
 	  <link rel="stylesheet" href="lib/jqueryui/jquery-ui.css">
 	  <link rel="stylesheet"	href="lib/fancytree/src/skin-lion/ui.fancytree.css">	
 	  <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
-	     
+	  
     <link rel="stylesheet" href="lib/datatables/datatables-1.10.20/css/jquery.dataTables.css">
 	  <link rel="stylesheet" href="css/s.css">
 
@@ -29,8 +29,10 @@
 		<div id="_01_01_01_title" class="string col-sm-6">		
 		  <h1></h1>
 		</div>
-		<div id="_01_01_02_a2hs" class="button col-sm-6 hidden ">
-			<button id="_01_01_02_a2hs_button" ></button>
+    <div id="_01_01_02_img" class="img hidden">
+      <img id="_01_01_02_img_a" src="&#x2F;favicon_io&#x2F;icon-192x192.png" width="192" height="192" alt="logo" >
+    </div>		<div id="_01_01_03_a2hs" class="button col-sm-6 hidden ">
+			<button id="_01_01_03_a2hs_button" ></button>
 		</div>
 
 		</section>
@@ -57,7 +59,8 @@
     <h2></h2>
 		<div id="_01_02_02_01_name" class="input  ">
 			<label for="_01_02_02_01_name_input"></label>
-			<input type="text" id="_01_02_02_01_name_input" 
+			<input type="text" 
+			       id="_01_02_02_01_name_input" 
 			       name="name" 
 			        
 			       
@@ -67,7 +70,8 @@
 		</div>
 		<div id="_01_02_02_02_id" class="input  disabled">
 			<label for="_01_02_02_02_id_input"></label>
-			<input type="text" id="_01_02_02_02_id_input" 
+			<input type="text" 
+			       id="_01_02_02_02_id_input" 
 			       name="id" 
 			       disabled 
 			       
@@ -81,9 +85,16 @@
 			</select>
 			<p class="error"></p>  
 		</div>
-		<div id="_01_02_02_04_role" class="input  ">
-			<label for="_01_02_02_04_role_input"></label>
-			<input type="text" id="_01_02_02_04_role_input" 
+		<div id="_01_02_02_04_input_type" class="select hidden ">
+			<label for="_01_02_02_04_input_type_select"></label>
+			<select id="_01_02_02_04_input_type_select" name="input_type"  	>
+			</select>
+			<p class="error"></p>  
+		</div>
+		<div id="_01_02_02_05_role" class="input  ">
+			<label for="_01_02_02_05_role_input"></label>
+			<input type="text" 
+			       id="_01_02_02_05_role_input" 
 			       name="role" 
 			        
 			       
@@ -91,9 +102,10 @@
 			        >
       <p class="error"></p>      
 		</div>
-		<div id="_01_02_02_05_label" class="input  ">
-			<label for="_01_02_02_05_label_input"></label>
-			<input type="text" id="_01_02_02_05_label_input" 
+		<div id="_01_02_02_06_label" class="input  ">
+			<label for="_01_02_02_06_label_input"></label>
+			<input type="text" 
+			       id="_01_02_02_06_label_input" 
 			       name="label" 
 			        
 			       
@@ -101,9 +113,10 @@
 			        >
       <p class="error"></p>      
 		</div>
-		<div id="_01_02_02_06_placeholder" class="input  ">
-			<label for="_01_02_02_06_placeholder_input"></label>
-			<input type="text" id="_01_02_02_06_placeholder_input" 
+		<div id="_01_02_02_07_placeholder" class="input  ">
+			<label for="_01_02_02_07_placeholder_input"></label>
+			<input type="text" 
+			       id="_01_02_02_07_placeholder_input" 
 			       name="placeholder" 
 			        
 			       
@@ -111,21 +124,22 @@
 			        >
       <p class="error"></p>      
 		</div>
-		<div id="_01_02_02_07_required" class="select  ">
-			<label for="_01_02_02_07_required_select"></label>
-			<select id="_01_02_02_07_required_select" name="required"  	>
+		<div id="_01_02_02_08_required" class="select  ">
+			<label for="_01_02_02_08_required_select"></label>
+			<select id="_01_02_02_08_required_select" name="required"  	>
 			</select>
 			<p class="error"></p>  
 		</div>
-		<div id="_01_02_02_08_disabled" class="select  ">
-			<label for="_01_02_02_08_disabled_select"></label>
-			<select id="_01_02_02_08_disabled_select" name="disabled"  	>
+		<div id="_01_02_02_09_disabled" class="select  ">
+			<label for="_01_02_02_09_disabled_select"></label>
+			<select id="_01_02_02_09_disabled_select" name="disabled"  	>
 			</select>
 			<p class="error"></p>  
 		</div>
-		<div id="_01_02_02_09_maxlength" class="input  ">
-			<label for="_01_02_02_09_maxlength_input"></label>
-			<input type="text" id="_01_02_02_09_maxlength_input" 
+		<div id="_01_02_02_10_maxlength" class="input  ">
+			<label for="_01_02_02_10_maxlength_input"></label>
+			<input type="text" 
+			       id="_01_02_02_10_maxlength_input" 
 			       name="maxlength" 
 			        
 			       
@@ -133,9 +147,10 @@
 			        >
       <p class="error"></p>      
 		</div>
-		<div id="_01_02_02_10_css" class="input  ">
-			<label for="_01_02_02_10_css_input"></label>
-			<input type="text" id="_01_02_02_10_css_input" 
+		<div id="_01_02_02_11_css" class="input  ">
+			<label for="_01_02_02_11_css_input"></label>
+			<input type="text" 
+			       id="_01_02_02_11_css_input" 
 			       name="css" 
 			        
 			       
@@ -143,9 +158,10 @@
 			        >
       <p class="error"></p>      
 		</div>
-		<div id="_01_02_02_11_file" class="input  ">
-			<label for="_01_02_02_11_file_input"></label>
-			<input type="text" id="_01_02_02_11_file_input" 
+		<div id="_01_02_02_12_file" class="input  ">
+			<label for="_01_02_02_12_file_input"></label>
+			<input type="text" 
+			       id="_01_02_02_12_file_input" 
 			       name="file" 
 			        
 			       
@@ -153,9 +169,10 @@
 			        >
       <p class="error"></p>      
 		</div>
-		<div id="_01_02_02_12_locale" class="input hidden ">
-			<label for="_01_02_02_12_locale_input"></label>
-			<input type="text" id="_01_02_02_12_locale_input" 
+		<div id="_01_02_02_13_locale" class="input hidden ">
+			<label for="_01_02_02_13_locale_input"></label>
+			<input type="text" 
+			       id="_01_02_02_13_locale_input" 
 			       name="locale" 
 			        
 			       
@@ -163,15 +180,16 @@
 			        >
       <p class="error"></p>      
 		</div>
-		<div id="_01_02_02_13_model" class="select  ">
-			<label for="_01_02_02_13_model_select"></label>
-			<select id="_01_02_02_13_model_select" name="model"  	>
+		<div id="_01_02_02_14_model" class="select  ">
+			<label for="_01_02_02_14_model_select"></label>
+			<select id="_01_02_02_14_model_select" name="model"  	>
 			</select>
 			<p class="error"></p>  
 		</div>
-		<div id="_01_02_02_14_group" class="input hidden ">
-			<label for="_01_02_02_14_group_input"></label>
-			<input type="text" id="_01_02_02_14_group_input" 
+		<div id="_01_02_02_15_group" class="input hidden ">
+			<label for="_01_02_02_15_group_input"></label>
+			<input type="text" 
+			       id="_01_02_02_15_group_input" 
 			       name="group" 
 			        
 			       
@@ -179,15 +197,16 @@
 			        >
       <p class="error"></p>      
 		</div>
-		<div id="_01_02_02_15_heading" class="select hidden ">
-			<label for="_01_02_02_15_heading_select"></label>
-			<select id="_01_02_02_15_heading_select" name="heading"  	>
+		<div id="_01_02_02_16_heading" class="select hidden ">
+			<label for="_01_02_02_16_heading_select"></label>
+			<select id="_01_02_02_16_heading_select" name="heading"  	>
 			</select>
 			<p class="error"></p>  
 		</div>
-		<div id="_01_02_02_16_href" class="input hidden ">
-			<label for="_01_02_02_16_href_input"></label>
-			<input type="text" id="_01_02_02_16_href_input" 
+		<div id="_01_02_02_17_href" class="input hidden ">
+			<label for="_01_02_02_17_href_input"></label>
+			<input type="text" 
+			       id="_01_02_02_17_href_input" 
 			       name="href" 
 			        
 			       
@@ -195,11 +214,44 @@
 			        >
       <p class="error"></p>      
 		</div>
-		<div id="_01_02_02_17_target" class="select hidden ">
-			<label for="_01_02_02_17_target_select"></label>
-			<select id="_01_02_02_17_target_select" name="target"  	>
+		<div id="_01_02_02_18_alt" class="input hidden ">
+			<label for="_01_02_02_18_alt_input"></label>
+			<input type="text" 
+			       id="_01_02_02_18_alt_input" 
+			       name="alt" 
+			        
+			       
+			        
+			        >
+      <p class="error"></p>      
+		</div>
+		<div id="_01_02_02_19_target" class="select hidden ">
+			<label for="_01_02_02_19_target_select"></label>
+			<select id="_01_02_02_19_target_select" name="target"  	>
 			</select>
 			<p class="error"></p>  
+		</div>
+		<div id="_01_02_02_20_width" class="input hidden ">
+			<label for="_01_02_02_20_width_input"></label>
+			<input type="text" 
+			       id="_01_02_02_20_width_input" 
+			       name="width" 
+			        
+			       
+			        
+			        >
+      <p class="error"></p>      
+		</div>
+		<div id="_01_02_02_21_height" class="input hidden ">
+			<label for="_01_02_02_21_height_input"></label>
+			<input type="text" 
+			       id="_01_02_02_21_height_input" 
+			       name="height" 
+			        
+			       
+			        
+			        >
+      <p class="error"></p>      
 		</div>
 
     </div>
@@ -212,7 +264,8 @@
 			
 		<div id="_01_03_01_01_01_input1" class="input  ">
 			<label for="_01_03_01_01_01_input1_input"></label>
-			<input type="text" id="_01_03_01_01_01_input1_input" 
+			<input type="text" 
+			       id="_01_03_01_01_01_input1_input" 
 			       name="input1" 
 			        
 			       
@@ -222,7 +275,8 @@
 		</div>
 		<div id="_01_03_01_01_02_input2" class="input  ">
 			<label for="_01_03_01_01_02_input2_input"></label>
-			<input type="text" id="_01_03_01_01_02_input2_input" 
+			<input type="text" 
+			       id="_01_03_01_01_02_input2_input" 
 			       name="input2" 
 			        
 			       
@@ -264,7 +318,8 @@
 			
 		<div id="_01_03_01_03_01_input1" class="input  ">
 			<label for="_01_03_01_03_01_input1_input"></label>
-			<input type="text" id="_01_03_01_03_01_input1_input" 
+			<input type="text" 
+			       id="_01_03_01_03_01_input1_input" 
 			       name="input1" 
 			        
 			       
@@ -274,7 +329,8 @@
 		</div>
 		<div id="_01_03_01_03_02_input2" class="input  ">
 			<label for="_01_03_01_03_02_input2_input"></label>
-			<input type="text" id="_01_03_01_03_02_input2_input" 
+			<input type="text" 
+			       id="_01_03_01_03_02_input2_input" 
 			       name="input2" 
 			        
 			       

@@ -1,6 +1,7 @@
 		<div id="{{id}}" class="{{type}} {{css}} {{#disabled}}disabled{{/disabled}}">
 			<label for="{{id}}_input"></label>
-			<input type="text" id="{{id}}_input" 
+			<input type="{{#input_type}}{{input_type}}{{/input_type}}{{^input_type}}text{{/input_type}}" 
+			       id="{{id}}_input" 
 			       name="{{name}}" 
 			       {{#disabled}}disabled{{/disabled}} 
 			       {{#value}}value="{{value}}"{{/value}}
