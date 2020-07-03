@@ -6,7 +6,9 @@ Your time-to-market, cost, development time and codebase can be reduced by as mu
 
 Your web application development becomes mostly configuration and copy&paste.
 
-Demo at [https://js.actor/ams](https://js.actor/ams) : **Installation instructions are coming up**
+Demo at [https://js.actor/ams](https://js.actor/ams) 
+
+[Installation](#installation)
 
 ## Freedom
 
