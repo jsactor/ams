@@ -1,5 +1,5 @@
 {
-  "name": "jsactor-ams",
+  "name": "jsactor",
   "version": "1.0.1",
   "description": "Javascript Actor Managment System with Event Message Management",
   "main": "server.js",
@@ -35,8 +35,5 @@
   "bugs": {
     "url": "https://github.com/jsactor/ams/issues"
   },
-  "homepage": "https://github.com/jsactor/ams#readme",
-  "publishConfig": {
-    "registry":"https://npm.pkg.github.com/"
-  }
+  "homepage": "https://js.actor"
 }
