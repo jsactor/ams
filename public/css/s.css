@@ -2,8 +2,12 @@
 /* purple #736BFB */
 /* light-blue #00BFFF */
 
-body, div, p, a, input, button, select {
+body, div, p, input, button, select {
 	font-size: .965rem;
+}
+
+a {
+	font-size: .897rem;
 }
 
 input, button, select {
