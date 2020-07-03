@@ -1,5 +1,5 @@
 {
-  "name": "jsactor",
+  "name": "jsactor-ams",
   "version": "1.0.1",
   "description": "Javascript Actor Managment System with Event Message Management",
   "main": "server.js",

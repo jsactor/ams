@@ -147,3 +147,4 @@ public/admin/lib/datatables/datatables.min.css
 public/admin/lib/datatables/datatables.min.js
 public/css/normalize.css
 public/admin/css/normalize.css
+package-lock.json
