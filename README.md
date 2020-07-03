@@ -8,7 +8,14 @@ Your web application development becomes mostly configuration and copy&paste.
 
 Demo at [https://js.actor/ams](https://js.actor/ams) 
 
-[Installation](#installation)
+## Installation
+
+- Download the files form [Git repository](https://github.com/jsactor/ams).
+- Install latest [HAPI](https://www.npmjs.com/package/@hapi/hapi). Tested with versions 18 and 19.
+- NPM will find HAPI module vulnerabilities which cannot be resolved at this time but it should not affect your local installation.
+- Update [Mustache.js](https://github.com/janl/mustache.js/) and [Datatables](https://datatables.net/) if required.
+- Run "node server" from the project folder.
+- View app at http://localhost:3000/app.html .
 
 ## Freedom
 
@@ -110,12 +117,6 @@ jsActor app loads in about a second or less. With a browser cache on even less t
 
 - Enjoy a complete snapshot of your app and easily find all actions and settings applied to an actor under debugging.
 - Browser Console outputs the details of all actors, actions and events in real time so you know what exactly is going on under the hood.
-
-## Installation
-
-- Download the files form Git repositary
-- Run "node server" from the project folder
-- View app at http://localhost:3000/app.html
 
 ## Now under development
 
