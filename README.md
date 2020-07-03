@@ -109,6 +109,12 @@ jsActor app loads in about a second or less. With a browser cache on even less t
 - Enjoy a complete snapshot of your app and easily find all actions and settings applied to an actor under debugging.
 - Browser Console outputs the details of all actors, actions and events in real time so you know what exactly is going on under the hood.
 
+## Installation
+
+- Download the files form Git repositary
+- Run "node server" from the project folder
+- View app at http://localhost:3000/app.html
+
 ## Now under development
 
 - Web workers: delegate computation to multithread
