@@ -1,7 +1,7 @@
 {
-  "name": "jsactor",
+  "name": "js.Actor",
   "version": "1.0.1",
-  "description": "Actor Managment System with Event Message Management",
+  "description": "Javascript Actor Managment System with Event Message Management",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -25,7 +25,8 @@
     "mustache": "^2.3.0"
   },
   "directories": {
-    "lib": "lib"
+    "generator": "generator",
+    "public": "public"
   },
   "repository": {
     "type": "git",
