@@ -11,11 +11,13 @@ Demo at [https://js.actor/ams](https://js.actor/ams)
 ## Installation
 
 - Download the files form [Github repository](https://github.com/jsactor/ams).
-- Install latest [HAPI](https://www.npmjs.com/package/@hapi/hapi). Tested with versions 18 and 19.
-- NPM will find HAPI module vulnerabilities which cannot be resolved at this time but it should not affect your local installation.
-- Update [Mustache.js](https://github.com/janl/mustache.js/) and [Datatables](https://datatables.net/) if required.
+- Install the latest [HAPI](https://www.npmjs.com/package/@hapi/hapi) and modules:
+- npm i @hapi/hapi
+- npm i @hapi/inert
+- npm install mustache --save
 - Run "node server" from the project folder.
 - View app at http://localhost:3000/app.html .
+- Update [Datatables](https://datatables.net/) plugin if required.
 
 ## Freedom
 
