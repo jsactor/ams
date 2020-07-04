@@ -87,7 +87,7 @@ jsActor app loads in about a second or less. With a browser cache on even less t
 
 - This is totally exciting and totally different from what everybody is doing today.
 - Easily orchestrate events and action queues with a built-in Director.
-- Let Director manage even the most complex consecutive scenarios for you.
+- Let Director manage even the most complex synchronous and asynchronous scenarios for you.
 - Create any number of custom event messages and send them to any part of your app to trigger sync or async actions in other elements.
 
 ## HTML
