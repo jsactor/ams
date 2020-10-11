@@ -28,130 +28,130 @@ ac.document = class Actor_Document extends Actor {
   constructor(data, type, role) {
   	super(data, type, role);  
   }
-}
+};
 
 ac.anchor = class Actor_Anchor extends Actor {
   constructor(data, type, role) {
   	super(data, type, role);  
   }
-}
+};
 
 ac.button = class Actor_Button extends Actor {
   constructor(data, type, role) {
   	super(data, type, role);  
   }
-}
+};
 
 ac.chart = class Actor_Chart extends Actor {
   constructor(data, type, role) {
 	super(data, type, role);  
   } 
-}
+};
 
 ac.checkbox = class Actor_Checkbox extends Actor {
   constructor(data, type, role) {
     super(data, type, role);  
   } 
-}
+};
 
 ac.datatable = class Actor_Datatable extends Actor {
   constructor(data, type, role) {
     super(data, type, role);  
   } 
-}
+};
 
 ac.fieldset = class Actor_Fieldset extends Actor {
   constructor(data, type, role) {
   	super(data, type, role);  
   }
-}
+};
 
 ac.group = class Actor_Group extends Actor {
   constructor(data, type, role) {
   	super(data, type, role);  
   }
-}
+};
 
 ac.header = class Actor_Header extends Actor {
   constructor(data, type, role) {
     super(data, type, role);  
   } 
-}
+};
 
 ac.html = class Actor_Html extends Actor {
   constructor(data, type, role) {
   	super(data, type, role);  
   } 
-}
+};
 
 ac.img = class Actor_Img extends Actor {
   constructor(data, type, role) {
   	super(data, type, role);
   }
 }
-
+;
 ac.input = class Actor_Input extends Actor {
   constructor(data, type, role) {
     super(data, type, role);
   }
-}
+};
 
 ac.panel = class Actor_Panel extends Actor {
   constructor(data, type, role) {
 	super(data, type, role);  
   } 
-}
+};
 
 ac.plugin = class Actor_Plugin extends Actor {
   constructor(data, type, role) {
 	super(data, type, role);  
   } 
-}
+};
 
 ac.radio = class Actor_Radio extends Actor {
   constructor(data, type, role) {
   	super(data, type, role);  
   } 
-}
+};
 
 ac.search = class Actor_Search extends Actor {
   constructor(data, type, role) {
 	super(data, type, role);
   }
-}
+};
 
 ac.section = class Actor_Section extends Actor {
   constructor(data, type, role) {
 	super(data, type, role);  
   }
-}
+};
 
 ac.select = class Actor_Select extends Actor {
   constructor(data, type, role) {
   	super(data, type, role);  
   }
-}
+};
 
 ac.string = class Actor_String extends Actor {
   constructor(data, type, role) {
   	super(data, type, role);  
   }
-}
+};
 
 ac.textarea = class Actor_Textarea extends Actor {
   constructor(data, type, role) {
     super(data, type, role);  
   }
-}
+};
 
 ac.th = class Actor_Th extends Actor {
   constructor(data, type, role) {
   	super(data, type, role);  
   }
-}
+};
 
 ac.tree = class Actor_Tree extends Actor {
   constructor(data, type, role) {
 	super(data, type, role);  
   }
-}
+};

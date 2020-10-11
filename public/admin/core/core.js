@@ -23,7 +23,6 @@ class Play {
 
 class Role {
   constructor(key, data) {
-  	var th = this;
   	this.name = key;
   	cm.map_data_entries_to_object(this, data);
   };
@@ -69,24 +68,24 @@ class Director {
   };
 	
   proceed() {
-	var d = this;
+	const d = this;
 	if(!d.queue || !d.queue.length) return;
-	var na = d.queue[0];
+	const na = d.queue[0];
 	na.next = true;
 	d.run(na.next);
   };
 	
   run(next) {
-	var d = this;
+	const d = this;
 	if(!next) return;
 //console.log('Director :: run next');
-	var queue = d.queue;
-	var run_action = function(config) {
-	  var ac = config;
-	  var actor = ac.actor;
-	  var event = ac.event;
+	const queue = d.queue;
+	const run_action = function(config) {
+	  const ac = config;
+	  const actor = ac.actor;
+	  const event = ac.event;
 	  actor.action = ac.action;
-	  var action = new appn.action[actor.action.actn](actor, event);
+	  const action = new appn.action[actor.action.actn](actor, event);
 	  action.next = next;			
 	  if (!action.wait) {
 		mm.director.queue.shift();
@@ -98,7 +97,7 @@ class Director {
 		action.perform();
 		action.console();
 	  }
-	}
+	};
 	run_action(queue[0]);	
 	mm.t2 = performance.now();
 //		console.log((mm.t2 - mm.t0) + " milliseconds.");
@@ -114,8 +113,8 @@ class Actor {
 	  throw new TypeError (`Actor id, name or type is missing`);    	
 	}
 	if(actor.role) {
-	  var rs = actor.role.split(mm.delimiter.space);	  
-	  for(var ar of rs) {
+	  const rs = actor.role.split(mm.delimiter.space);	  
+	  for(let ar of rs) {
 	    if(!role.hasOwnProperty(ar)) {
 		  throw new TypeError (`Role ${ar} does not exist.`);    	
 		}			  
@@ -126,14 +125,14 @@ class Actor {
   };
 
   static handler(actor) {
-	var type = mm.type[actor.type];
+	const type = mm.type[actor.type];
   	if(!type.selector || !type.selector.event) return;
-  	var e = type.selector.event;		
-  	var id = '#' + actor.id;
-  	for (var event in e) {  		
+  	const e = type.selector.event;		
+  	const id = '#' + actor.id;
+  	for (let event in e) {  		
       $(id).on( event, e[event], actor, function(event) {
-    	var a = mm.actor[actor.id];
-    	var action = new appn.action.send(a);
+    	const a = mm.actor[actor.id];
+    	const action = new appn.action.send(a);
     	action.actor = a;
     	action.queue(event.type, event);
       });      

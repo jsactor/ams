@@ -200,20 +200,20 @@ mm.template.html =
 	
 	'<script src="lib/datatables/datatables-1.10.20/js/jquery.dataTables.min.js"></script> ' +		
 	'<script src="https://www.gstatic.com/charts/loader.js"></script>' +
-
-	'<script src="core/core.js"></script> ' +		
-	'<script src="app/config/ams.js"></script> ' +
-	'<script src="app/js/type.js"></script> ' +
-	'<script src="app/config/config.js"></script> ' +
- 	'<script src="app/config/app.js"></script> ' +
-    '<script src="app/lang/locale.js" charset="UTF-8"></script> ' +
-	'<script src="app/js/roles.js"></script> ' +
-	'<script src="app/data/actors.js"></script> ' +
-	'<script src="app/js/methods.js"></script> ' +
-	'<script src="app/js/actions.js"></script> ' +
-	'<script src="app/js/app.js"></script> ' +
-	'<script src="lib/mustache/mustache.min.js"></script> ' +
-	'<script src="app/js/template.js"></script>	 ' +
+	
+    '<script src="core/core.js"></script> ' + 
+    '<script src="app/config/ams.js"></script> ' + 
+    '<script src="app/config/type.js"></script> ' +	
+    '<script src="app/config/config.js"></script> ' + 
+    '<script src="app/config/app.js"></script> ' + 
+    '<script src="app/config/roles.js"></script> ' + 
+    '<script src="app/lang/locale.js" charset="UTF-8"></script> ' + 
+    '<script src="app/data/actors.js"></script> ' +	
+    '<script src="app/js/methods.js"></script> ' +	
+    '<script src="app/js/actions.js"></script> ' +	
+    '<script src="app/js/app.js"></script> ' +	
+    '<script src="lib/mustache/mustache.min.js"></script> ' +	
+    '<script src="app/js/template.js"></script> ' +	
 
 	'</body> ' +
 	'</html>';

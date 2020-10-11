@@ -21,7 +21,7 @@ var TREE_JSON = "../app/data/tree.json";
 
 // this 3 lines for admin part of the app
 var APP_ACTORS_JS = '/app/data/actors.js';
-var APP_ROLES_JS = '/app/js/roles.js';
+var APP_ROLES_JS = '/app/config/roles.js';
 var APP_VERSION_ONLINE = false;
 var RENDER_ACTORS = 'actors.js';
 var RENDER_TREE = 'tree.json';

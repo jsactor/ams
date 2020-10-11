@@ -27,18 +27,18 @@ cm.fetch = async function(file_url, type) {
 };
 
 cm.postmessage = function (call, contenttype, request, callback) {
-	var ww = 'app/ww/fetch.js';
-	var config = {};
+	let ww = 'app/ww/fetch.js';
+	let config = {};
 	config.url = '../.' + mm.path.request + '/' + call;
 	config.contenttype = contenttype;
-	config.request = typeof request === 'String' ? request : JSON.stringify(request);
-	var worker = new Worker(ww);
+	config.request = typeof request === 'string' ? request : JSON.stringify(request);
+	let worker = new Worker(ww);
 	worker.addEventListener('message', function(e) {
 		callback(e.data);
 	}, false);
 	worker.postMessage(config);
 	console.log('WEB WORKER');
-}
+};
 
 // returns item if it's a number > 0
 cm.filter_number = function(a){
@@ -67,7 +67,7 @@ cm.split_array = function(array, delimiter) {
 };
 
 cm.remove_from_array = function(item, array) {
-  	var index = array.indexOf(item);
+  	let index = array.indexOf(item);
   	if (index !== -1) array.splice(index, 1);
 };
 
@@ -80,7 +80,7 @@ cm.local_store_get = function(key) {
 };
 
 cm.map_data_entries_to_object = function(object, data, enclosed) {
-  for(var [key, value] of Object.entries(data)) {	  
+  for (let [key, value] of Object.entries(data)) {	  
   // enclosed parameter can be handled in a different way 
   //  by searching the actor name in the data json 
   if(key === enclosed) {
@@ -111,15 +111,15 @@ cm.traverse_object = function(obj) {
     throw new TypeError ('ERROR - no object id created.');
   } 
 
-  var parent = mm.temp.fjt[obj.id] = {};
+  let parent = mm.temp.fjt[obj.id] = {};
   parent.id = obj.id;
   parent.children = [];
   
-  var id = '_' + mm.temp.temp_id++;
-  for (var key in obj) {
+  let id = '_' + mm.temp.temp_id++;
+  for (let key in obj) {
     
     if (obj.hasOwnProperty(key)) {
-      var obj_key = obj[key];	
+      let obj_key = obj[key];	
       // set ID and create new flat tree item
       if(key === 'title') {
       // TITLE key          
@@ -128,7 +128,7 @@ cm.traverse_object = function(obj) {
         mm.temp.fji = {};
       } else if(key === 'data') {
         // DATA key
-        for (var k in obj_key) {
+        for (let k in obj_key) {
        	if (obj_key.hasOwnProperty(k)) {
           // do not overwrite the ID                
           if( k != 'id' ) {
@@ -144,8 +144,8 @@ cm.traverse_object = function(obj) {
       // CHILDREN key          
       if(obj_key.length !== 0) {
         // make an array of children
-        for (var i in obj_key) {
-          var item = obj_key[i];
+        for (let i in obj_key) {
+          let item = obj_key[i];
             if(typeof item === 'object') {
               if (item.title) {
               	item.id = '_' + mm.temp.temp_id;
@@ -164,50 +164,50 @@ cm.traverse_object = function(obj) {
 
 cm.update_ids = function(flat_tree) {
   // create unique numeric index
-  for (var key in flat_tree) {
-    var w = flat_tree[key];
-    var parent_prefix = w.id !== '_0' ? w.id : '';			
-    var children = w.children;		
+  for (let key in flat_tree) {
+    let w = flat_tree[key];
+    let parent_prefix = w.id !== '_0' ? w.id : '';			
+    let children = w.children;		
     if(children && children.length > 0) {
-      for (var k in children) { 
-        var child = flat_tree[children[k]];			
-		var index = (k++ < 9) ? ('_0' + k++) : ('_' + k++) ;
+      for (let k in children) { 
+        let child = flat_tree[children[k]];			
+		let index = (k++ < 9) ? ('_0' + k++) : ('_' + k++) ;
 		child['id'] = parent_prefix + index;
       }				
     }
   }
 	
   // create unique index with object name
-  var index = flat_tree;
+  let index = flat_tree;
   flat_tree = {};
   
-  for (var key in index) {
-    var item = index[key];
+  for (let key in index) {
+    let item = index[key];
     if(item.id || item.name) {
-      var new_id = item.id + '_' + item.name;
+      let new_id = item.id + '_' + item.name;
       if(key === 'root') new_id = key;
-        item.id = new_id;
+        item['id'] = new_id;
         flat_tree[new_id] = item;
       }
    }
 	
   // set parent property
-  for (var key in flat_tree) {      
-    var w = flat_tree[key];
-    var children = w.children;
-    for (var k in children) {      
-      var child = index[children[k]];
+  for (let key in flat_tree) {      
+    let w = flat_tree[key];
+    let children = w.children;
+    for (let k in children) {      
+      let child = index[children[k]];
       child['parent'] = key;
     }
   }
   
   // set children property
-  for (var key in flat_tree) {
-    var w = flat_tree[key];
-    var children = w.children;
-    var new_children = [];
-    for (var k in children) {
-      var child = index[children[k]];
+  for (let key in flat_tree) {
+    let w = flat_tree[key];
+    let children = w.children;
+    let new_children = [];
+    for (let k in children) {
+      let child = index[children[k]];
       child['parent'] = key;
       new_children.push(child.id);
     }
@@ -224,14 +224,14 @@ cm.update_ids = function(flat_tree) {
 };
 
 cm.tree = function(root_widget, flat_json) {
- var json_tree = flat_json;
-  var root = root_widget;
-  var template_rendered = "";
-  var render_children = root.children;
-  var obj = {};
+ let json_tree = flat_json;
+  let root = root_widget;
+  let template_rendered = "";
+  let render_children = root.children;
+  let obj = {};
   if(render_children.length) {
-    for( var i = 0, length = render_children.length; i < length; i++ ) {				
-  	  var item = render_children[i];
+    for ( let i = 0, length = render_children.length; i < length; i++ ) {				
+  	  let item = render_children[i];
 	  obj = json_tree[render_children[i]];		
 	  if(obj.children && obj.children.length > 0 ) {
         obj.child = cm.tree(obj, json_tree);
@@ -250,7 +250,7 @@ cm.get_template = function(actor_type) {
 
 cm.render_template = function(object) {
 	const obj = object;
-	var m;
+	let m;
 	const actor_type = obj.type;
 	
 	const template = cm.get_template(actor_type);
@@ -272,10 +272,10 @@ cm.render_template = function(object) {
 };
 
 cm.get_root_widget = function(flat_json) {
-  var response = {};
-  var tree_widget = flat_json;
-  var obj = {};
-  for (var key in tree_widget) {	
+  let response = {};
+  let tree_widget = flat_json;
+  let obj = {};
+  for (let key in tree_widget) {	
     if (tree_widget.hasOwnProperty(key)) {			
       obj = tree_widget[key];
       if(!obj.parent) {
@@ -295,12 +295,12 @@ cm.build_json = function(fancy_tree) {
   mm.temp.fjt = {};
   mm.temp.fji = {};
   mm.temp.temp_id = 0;
-  var flat_tree = cm.traverse(JSON.parse(fancy_tree));	
+  let flat_tree = cm.traverse(JSON.parse(fancy_tree));	
   return cm.update_ids(flat_tree);
 };
 
 cm.build_html = function(flat_json) {
-  var actor = this;
+  let actor = this;
   const root_widget = cm.get_root_widget(flat_json);	
   root_widget.child = cm.tree(root_widget, flat_json);
   return cm.render_template(root_widget);
@@ -313,8 +313,8 @@ appn.methods = {};
 appn.methods.actor = {
 
   has_css_class: function(css_class) {
-	var el = document.querySelector('#' + this.id);
-	var cs = cm.split_array(el.className, mm.delimiter.space);
+	let el = document.querySelector('#' + this.id);
+	let cs = cm.split_array(el.className, mm.delimiter.space);
 	return cm.in_array(css_class, cs);
   },
   
@@ -339,34 +339,34 @@ appn.methods.actor = {
   },
 
   collect_data : function(handler) {
-    var actor = this;
-    var hdlr = handler ? handler : '_get_value';
-    var obj = null;
+    let actor = this;
+    let hdlr = handler ? handler : '_get_value';
+    let obj = null;
     // if actor is not visible then value is no longer valid
     if(!actor.is_visible()){
       return null;
     }
     // get value by handler method
     if(actor[hdlr]){
-  	  var v = actor[hdlr]();
+  	  let v = actor[hdlr]();
   	  return v ? v : null;
   	}
-	var children = actor.children;
+	let children = actor.children;
 	if(children && children.length > 0) {
-	  for (var i in children) {		
-		var ch = mm.actor[children[i]];		
+	  for (let i in children) {		
+		let ch = mm.actor[children[i]];		
 		if(!ch) return;
-		var ch_obj;
-		var obj_to_obj;
+		let ch_obj;
+		let obj_to_obj;
         if(!ch.is_model()) {
-		  var ch_obj = ch.collect_data();
+		  let ch_obj = ch.collect_data();
 		  if(ch_obj && (typeof ch_obj === 'object' || typeof ch_obj === 'string' || typeof ch_obj === 'boolean')) {	  
 		    obj = obj || {};	   
 		    obj_to_obj = ch_obj;
 		    if(ch.is_clone()) {
-		      var model = mm.actor[ch.model];
+		      let model = mm.actor[ch.model];
 		      if(model) {
-			    var array = obj[model.name] || [];
+			    let array = obj[model.name] || [];
 			    array.push(ch_obj);  
 			    obj_to_obj = array && array.length ? array : null;		    	  
 		      }
@@ -380,7 +380,7 @@ appn.methods.actor = {
   },
 
   show: function(show) {
-	var el = document.getElementById(this.id);
+	let el = document.getElementById(this.id);
 	el.classList.remove(CSS_HIDDEN);
     if(!show) {
     	el.classList.add(CSS_HIDDEN);
@@ -393,15 +393,15 @@ appn.methods.actor = {
 
   // finds id of the closest actor by role in action.trgt
   get_actor_id_by_role: function(action) {
-	var action = action;
-	var actor = action.actor;
-	var role = action.trgt;
+	const ac = action;
+	const actor = ac.actor;
+	const role = ac.trgt;
     // check if trgt is the actor itself
-    var rs = cm.split_array(actor.role, mm.delimiter.space);
+	const rs = cm.split_array(actor.role, mm.delimiter.space);
     // if yes return an array with actor id only
     if(cm.in_array(role, rs)) return [actor.id];
     
-    var ta_id = mm.map[role];
+    const ta_id = mm.map[role];
     if(!ta_id || !ta_id.length) return;
      
     // return target actor id if it's an only actor having this role
@@ -414,11 +414,11 @@ appn.methods.actor = {
     // if yes then look only for target with clone suffix
     
     // get non-cloned targets 
-    var find_non_cloned_targets = function(targets){
-      var ts = targets;
-      var nca = [];
-      for(var id in ts) {
-    	var ncta = mm.actor[ts[id]];
+    const find_non_cloned_targets = function(targets){
+      const ts = targets;
+      let nca = [];
+      for (let id in ts) {
+    	const ncta = mm.actor[ts[id]];
     	if (!ncta.is_clone()) {
     	  nca.push(ts[id]);
     	}
@@ -427,11 +427,11 @@ appn.methods.actor = {
     };
 
     // get non-cloned targets 
-    var find_cloned_targets = function(targets){
-      var ts = targets;
-      var nca = [];
-      for(var id in ts) {
-    	var ncta = mm.actor[ts[id]];
+    const find_cloned_targets = function(targets){
+      const ts = targets;
+      let nca = [];
+      for (let id in ts) {
+    	const ncta = mm.actor[ts[id]];
     	if (ncta.is_clone()) {
     	  nca.push(ts[id]);
     	}
@@ -441,7 +441,7 @@ appn.methods.actor = {
 
     // return non-cloned target if there is no more 
     // than one non-cloned target actor in the array
-    var trgts;
+    let trgts;
     if(!actor.is_clone()) {
       trgts = find_non_cloned_targets(ta_id);
       if(trgts && trgts.length === 1) {
@@ -458,12 +458,12 @@ appn.methods.actor = {
       // - the clone within the same cloned piece: fieldset, group, panel
       trgts = find_cloned_targets(ta_id);
       if (trgts && trgts.length) {    	  
-     	var actor_sfx_index = actor.id.indexOf(actor.name) + actor.name.length + 1;
+    	const actor_sfx_index = actor.id.indexOf(actor.name) + actor.name.length + 1;
      	actor_sfx = actor.id.substring(actor_sfx_index);
-     	for (var trgts_id in trgts) {
-	      var tac = mm.actor[trgts[trgts_id]];
+     	for (let trgts_id in trgts) {
+     	  const tac = mm.actor[trgts[trgts_id]];
 		  console.log(tac.name);
-		  var tac_sfx_index = tac.id.indexOf(tac.name) + tac.name.length + 1;
+		  const tac_sfx_index = tac.id.indexOf(tac.name) + tac.name.length + 1;
 		  tac_sfx = tac.id.substring(tac_sfx_index);
 		  if(actor_sfx === tac_sfx ) {
   			return [tac.id];
@@ -472,9 +472,9 @@ appn.methods.actor = {
       } else {
     	// remove the original actor it was cloned from if it's in the array
     	trgts = find_non_cloned_targets(ta_id);
-    	var ncts = [];
-    	for (var t in trgts) {
-          var ncta = mm.actor[ts[id]];
+    	let ncts = [];
+    	for (let t in trgts) {
+    	  const ncta = mm.actor[ts[id]];
           if (actor.model && actor.model !== ncta.id) {
         	ncts.push(ncta);
           }
@@ -485,25 +485,25 @@ appn.methods.actor = {
             
     // if there are more than one target actor with this role look for closest one
     // break down the actor id into 'number' parts and remove its name from the array
-    var a_id = actor.id.split(mm.delimiter.role);
+    const a_id = actor.id.split(mm.delimiter.role);
      
-    var af = a_id.filter(cm.filter_number);
+    const af = a_id.filter(cm.filter_number);
 	
-    var closest = [];
+    let closest = [];
     
-    var tf = {};
-    var longest = 0; 
+    let tf = {};
+    let longest = 0; 
 
-    for(var id in ta_id) {
-      var t_id = ta_id[id];
-      var p = t_id.split(mm.delimiter.role);
+    for (let id in ta_id) {
+      const t_id = ta_id[id];
+      const p = t_id.split(mm.delimiter.role);
 	  tf[t_id] = p.filter(cm.filter_number);	
 	  longest = tf[t_id].length > longest ? tf[t_id].length : longest;
 	}
 	// add '00' to the end of actor id parts array for comparison
 	if(longest && (longest > af.length)) {
-	  var afl = af.length;
-	  for(var l = 0; l < longest - afl; l++) {
+	  let afl = af.length;
+	  for (let l = 0; l < longest - afl; l++) {
 		af.push('00');
 	  }
 	}
@@ -513,12 +513,12 @@ appn.methods.actor = {
 //		_01_02_02_03_type _01_02_02_07_required
 	
 	// iterating through actor id parts
-	for(var i = 0; i < af.length; i++) {
+	for (let i = 0; i < af.length; i++) {
       // array for closest actors
-	  var smallest = 0;
+	  let smallest = 0;
 
-	  for(var id in tf) {
-		var tf_id = tf[id];
+	  for (let id in tf) {
+		const tf_id = tf[id];
 		if(!tf_id) return;				
 		if(tf_id[i]) {
 		  // closest actor's id is equal or longer than the current actor's id
@@ -541,7 +541,7 @@ appn.methods.actor = {
 			      if(smallest <= 0 || (smallest > 0 && Number(tf_id[i]) <= smallest)) {
 				  smallest = Number(tf_id[i]);
 			    } else {
-			      var nc = closest.indexOf(id, 0)
+			      const nc = closest.indexOf(id, 0);
 			      closest.splice( nc, 1 );
 			    }
 			  }
@@ -565,8 +565,8 @@ appn.methods.actor = {
   
   target: function(action) {
     if(!action.trgt) return;
-    var actor = this;
-    var t = action.trgt;    
+    const actor = this;
+    const t = action.trgt;    
     if(mm.role[t]) {
       // search by role
       return actor.get_actor_id_by_role(action);
@@ -579,11 +579,11 @@ appn.methods.actor = {
   },
 
   find_value_in_json: function(source_json, title, handler) {
-    var actor = this;
-    var value;
-    var traverse = function(json, title) {
-      for (key in json) {
-        var obj = json[key];
+	const actor = this;
+    let value;
+    const traverse = function(json, title) {
+      for (let key in json) {
+    	const obj = json[key];
         if(key === title && typeof obj !== 'object') {
           value = obj;
         } else if(typeof obj === 'object') {
@@ -604,11 +604,11 @@ appn.methods.actor = {
   },
 	
   get_clone_ids: function() {
-	var actor = this;
-	var p = actor.parent_actor();
-	var ch = p.children;
-	var clones = [];
-	for (var ch_id of ch) {
+	const actor = this;
+	const p = actor.parent_actor();
+	const ch = p.children;
+	let clones = [];
+	for (let ch_id of ch) {
 	  if(mm.actor[ch_id].model === actor.id) {
 		  clones.push(ch_id);
 	  }
@@ -617,44 +617,44 @@ appn.methods.actor = {
   },
   
   calcualte_next_clone_index: function(clone_ids) {
-    var cids = clone_ids;
-    var max = 0;
+	const cids = clone_ids;
+    let max = 0;
     if (cids.length === 0) return max + 1;
-    for ( var i = 0; i < cids.length; i++ ) {
-    	var cid = cids[i];
-    	var dx = cid.lastIndexOf(mm.delimiter.id);
-    	var cid_sfx = cid.substring(dx + 1);
+    for ( let i = 0; i < cids.length; i++ ) {
+    	const cid = cids[i];
+    	const dx = cid.lastIndexOf(mm.delimiter.id);
+    	const cid_sfx = cid.substring(dx + 1);
     	if( Number(cid_sfx) > max ) max = Number(cid_sfx);
     }
     return max + 1;
   },
 	
   is_value: function(action) {
-    var actor = this;
-    var action = action;
-    if(!action.trgt) return;
-    var ta_id = actor.target(action);
-    var ta = mm.actor[ta_id[0]];
+	const actor = this;
+	const ac = action;
+    if(!ac.trgt) return;
+    const ta_id = actor.target(ac);
+    const ta = mm.actor[ta_id[0]];
     // v can be an empty string ''
-    var v = ta._get_value();
-    if(typeof action.valu === 'array' || typeof action.valu === 'object') {
-      v = cm.in_array(v, action.valu);
+    let v = ta._get_value();
+    if(Array.isArray(ac.valu) || typeof ac.valu === 'object') {
+      v = cm.in_array(v, ac.valu);
     }
-    if(typeof v === typeof action.valu) {
-      v = v === action.valu;
+    if(typeof v === typeof ac.valu) {
+      v = v === ac.valu;
     }
     return v;
   },
 
 //ES REMINDER is_visible: look for the hidden parents may be needed later
   is_visible: function(action) {
-    var actor = this;
-    var action = action;
-    var a = actor;
-    if(action) {
+	const actor = this;
+	const ac = action;
+	const a = actor;
+    if(ac) {
       // if 'action' provided then it works as action rule for target
-      if(!action.trgt) return;
-      var ta_id = actor.target(action)[0];
+      if(!ac.trgt) return;
+      const ta_id = actor.target(ac)[0];
       a = mm.actor[ta_id];
     }   
     return !a.has_css_class(CSS_HIDDEN);
@@ -667,19 +667,19 @@ appn.methods.actor = {
   /** VALIDATION RULES **/
   
   v_required: function() {
-    var actor = this;
+	const actor = this;
     return actor._get_value() ? true : false;
   },
   
   v_email: function() {
-	var actor = this;
-	var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+	const actor = this;
+	const re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     return actor._get_value().match(re) ? true : false;
   },
   
   v_password: function() {
-	var actor = this;
-	var re = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
+	const actor = this;
+	const re = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
 	return actor._get_value().match(re) ? true : false;
   },
   
@@ -690,7 +690,7 @@ appn.methods.actor = {
 appn.methods.button = {
 
   a2hs: function() {
-	var actor = this;  
+	const actor = this;  
 	  
 	let deferredPrompt;
 	const addBtn = document.querySelector('#' + actor.id);
@@ -733,15 +733,17 @@ appn.methods.input = {
   /** VALIDATION RULES **/
 
   v_name_unique: function() {
-    var actor = this;
-    var v = actor._get_value();
-    var p_id = actor.parent;
-    var p = mm.actor[p_id];
-    var unique = true;
-    for( var i = 0,length = p.children.length; i < length; i++ ) {
-      var ch_id = p.children[i];
-      if(mm.actor[ch_id].name === v) {
-        unique = false;
+	const actor = this;
+	const v = actor._get_value();
+	const p_id = actor.parent;
+	const p = mm.actor[p_id];
+	let unique = true;
+    for ( let i = 0,length = p.children.length; i < length; i++ ) {
+      const ch_id = p.children[i];
+      if(ch_id !== actor.id) {
+        if(mm.actor[ch_id].name === v) {
+          unique = false;
+        }    	  
       }
     }
     return unique;
@@ -753,19 +755,19 @@ appn.methods.input = {
 appn.methods.chart = {
 		
   app_stats: function() {
-	var actor = this;
-	var s = mm._app_role || mm.role;
-  	var json = [];
+	const actor = this;
+	const s = mm._app_role || mm.role;
+  	let json = [];
   	json.push(['Action', 'Number']);
-  	var arr = {};
-  	for(var [key, value] of Object.entries(s)) {
-  	  var actions = value.actions;
-  	  for (var i in actions) {
-  		var actn = actions[i].actn;
+  	let arr = {};
+  	for (let [key, value] of Object.entries(s)) {
+  	  const actions = value.actions;
+  	  for (let i in actions) {
+  		const actn = actions[i].actn;
   		arr[actn] = arr[actn] > 0 ? arr[actn] + 1 : 1;
   	  }	
   	}
-  	for(var [key, value] of Object.entries(arr)) {
+  	for (let [key, value] of Object.entries(arr)) {
   	  json.push([key, value]);
   	}
   	json.sort(function(a, b){return b[1] - a[1]});
@@ -773,21 +775,21 @@ appn.methods.chart = {
   },
 			
   init: function(action) {
-    var actor = this;
-    var action = action;
-    var app_data = actor[action.data]();
+	const actor = this;
+	const ac = action;
+	const app_data = actor[ac.data]();
     google.charts.load('current', {'packages':['corechart']});
     google.charts.setOnLoadCallback(draw_chart);
     function draw_chart() {
-      var data = google.visualization.arrayToDataTable(app_data);
-      var options = {
+      const data = google.visualization.arrayToDataTable(app_data);
+      const options = {
         //title: 'Actions',
         'legend':'left',
     	'is3D':true,
     	'width':900,
     	'height':800
       };
-      var chart = new google.visualization.PieChart(document.getElementById(actor.id));
+      const chart = new google.visualization.PieChart(document.getElementById(actor.id));
       chart.draw(data, options);
     };
   }		
@@ -801,30 +803,30 @@ appn.methods.datatable = {
     if(mm.path.roles !== null && !mm._app_map) {
        	throw new TypeError ('NO DATA in mm._app_map');
     }
-    var s = mm._app_map && Object.entries(mm._app_map).length ? mm._app_map : mm.map;
-    var json = [];
-    for(var [key, value] of Object.entries(s)) {  		
-      var obj = {};
-      obj['roles'] = '<b>' + key + '</b>';
-      obj['actions'] = '';   
+    const s = mm._app_map && Object.entries(mm._app_map).length ? mm._app_map : mm.map;
+    let json = [];
+    for (let [key, value] of Object.entries(s)) {  		
+      let obj = {};
+      obj.roles = '<b>' + key + '</b>';
+      obj.actions = '';   
       
       // this should read appn.role from dinamically loaded
       // app roles.js file instead of admin's own roles.js
       // to show the list of roles in the app under development
       
       // if it's not admin copy then run mm.role for app only  
-      var role = mm._app_role ? mm._app_role[key] : mm.role[key];      
-      var actions = role.actions && role.actions.length ? role.actions : null;
+      const role = mm._app_role ? mm._app_role[key] : mm.role[key];      
+      const actions = role.actions && role.actions.length ? role.actions : null;
       if(actions) {
-        var actn_str = '<ul>';
-        for(var i in actions) {
-          var aia = actions[i].actn;
+    	let actn_str = '<ul>';
+        for (let i in actions) {
+          const aia = actions[i].actn;
           actn_str += '<li title="' + mm.desc.action[aia] + '"><b>' + aia + '</b><ul>';
-          var actn_config = '';
-          for(var [k, v] of Object.entries(actions[i])) {
+          let actn_config = '';
+          for (let [k, v] of Object.entries(actions[i])) {
         	// 'action.role' is used for console output only
         	if(k !== 'actn' && k !== 'role') {
-        	  var vv = v;
+        	  let vv = v;
         	  if(typeof v === 'object') vv = '[object]';
         	  if(Array.isArray(v)) vv = v;
               actn_config += '<li><i>' + k + '</i> : ' + vv + '</li>'; 
@@ -833,17 +835,17 @@ appn.methods.datatable = {
           actn_str += actn_config + '</ul></li>';
         }
         actn_str += '</ul>';
-        obj['actions'] = actn_str;
+        obj.actions = actn_str;
       }
-      obj['actors'] = '';
-      var ids = value.length ? value : null;
+      obj.actors = '';
+      const ids = value.length ? value : null;
       if(ids) {
-        var ids_str = '<ul>';
-        for(var id of ids) {
+        let ids_str = '<ul>';
+        for (let id of ids) {
           ids_str += '<li>' + id + '</li>';
         }
         ids_str += '</ul>';
-        obj['actors'] = ids_str;
+        obj.actors = ids_str;
       }
       json.push(obj);
     }
@@ -851,12 +853,12 @@ appn.methods.datatable = {
   },	
 		
   init: function(action) {
-    var actor = this;
-//    var ajax = action.ajax;
-    var data = actor[action.data] ? actor[action.data]() : action.data;
-    var columns = action.clms;
-    var n = 0;
-	var dt = $('table#' + actor.id + '_datatable').DataTable({
+    const actor = this;
+//    const ajax = action.ajax;
+    const data = actor[action.data] ? actor[action.data]() : action.data;
+    const columns = action.clms;
+    let n = 0;
+    const dt = $('table#' + actor.id + '_datatable').DataTable({
 //	    'ajax': ajax,
 		'data': data,
 	    'columns': columns,
@@ -881,18 +883,18 @@ appn.methods.datatable = {
 appn.methods.tree = {
 
   get_tree: function(action) {
-    var actor = this;
-    var action = action;
-    var request = {};
-    if(action.key) {
-      var urls = {};
-	  urls["base"] 		= mm.render.base;
-	  urls["html"] 		= mm.render.html;
-	  urls["app"] 		= mm.render.app;
-	  urls["actors"] 	= mm.render.actors;
-	  urls["tree"] 		= mm.render.tree;
-      request["urls"] = JSON.stringify(urls);
-      request[action.key] = actor._get_value();
+	const actor = this;
+	const ac = action;
+    let request = {};
+    if(ac.key) {
+      let urls = {};
+	  urls.base		= mm.render.base;
+	  urls.html 		= mm.render.html;
+	  urls.app		= mm.render.app;
+	  urls.actors 	= mm.render.actors;
+	  urls.tree 		= mm.render.tree;
+      request.urls = JSON.stringify(urls);
+      request[ac.key] = actor._get_value();
     } else {
       request = actor._get_value();
     }
@@ -900,16 +902,16 @@ appn.methods.tree = {
   },
   
   get_actors: function(action) {
-    var action = action;
-    var request = {};
-    var v = mm.storage['fancytree'] ? mm.storage['fancytree'] : null;
+	const ac = action;
+	let request = {};
+	const v = mm.storage['fancytree'] ? mm.storage['fancytree'] : null;
     if(v === null) {
       throw new TypeError ('ERROR - no data in "fancytree" storage.');
     }
-    var app_json = cm.build_json(v);
-    var app_json_str = cm.build_js(JSON.stringify(app_json));
-    if(action.key) {
-      request[action.key] = app_json_str;
+    const app_json = cm.build_json(v);
+    const app_json_str = cm.build_js(JSON.stringify(app_json));
+    if(ac.key) {
+      request[ac.key] = app_json_str;
     } else {
       request = app_json_str;
   	}
@@ -917,19 +919,19 @@ appn.methods.tree = {
   },
 
   get_html: function(action) {
-    var action = action;
-    var request = {};
-    var v = mm.storage['fancytree'] ? mm.storage['fancytree'] : null;
+	const ac = action;
+    let request = {};
+    const v = mm.storage['fancytree'] ? mm.storage['fancytree'] : null;
     if(v === null) {
       throw new TypeError ('ERROR - no data in "fancytree" storage.');
     }
     
     mm.gh0 = performance.now();
     
-    var app_json = cm.build_json(v);
-    var app_html = cm.build_html(app_json);
-    if(action.key) {
-      request[action.key] = app_html;
+    const app_json = cm.build_json(v);
+    const app_html = cm.build_html(app_json);
+    if(ac.key) {
+      request[ac.key] = app_html;
     } else {
       request = app_html;
       mm.gh1 = performance.now();
@@ -955,12 +957,12 @@ appn.methods.tree = {
         {title: "Paste as child<kbd>Ctrl+V</kbd>", cmd: "paste", uiIcon: "ui-icon-clipboard", disabled: true }
       ],
       beforeOpen: function(event, ui) {
-        var node = $.ui.fancytree.getNode(ui.target);
+    	const node = $.ui.fancytree.getNode(ui.target);
         $("#" + actor_id).contextmenu("enableEntry", "pa43ste", !!CLIPBOARD);
         node.setActive();
       },
       select: function(event, ui) {
-        var that = this;
+    	const that = this;
         // delay the event, so the menu can close and the click event does
         // not interfere with the edit control
         setTimeout(function(){
@@ -971,23 +973,23 @@ appn.methods.tree = {
   },
   
   get_active_node: function() {
-    var actor = this;
-    var tree = actor._get_tree();
-    var active_node = tree.getActiveNode();
+	const actor = this;
+	const tree = actor._get_tree();
+	const active_node = tree.getActiveNode();
     if(!active_node) return;
     return active_node;
   },
   
   update_node_data: function(action) {
-    var action = action;
-    var actor = action.actor;
-    var active_node = actor.get_active_node();
+	const ac = action;
+	const actor = ac.actor;
+	const active_node = actor.get_active_node();
     if(!active_node) return;
-    var source = actor.target(action);
-    var source_actor_id = source[0];
-    var json = {};  
+    const source = actor.target(ac);
+    const source_actor_id = source[0];
+    let json = {};  
     // collect data from source to json tree
-    var sa = mm.actor[source_actor_id];
+    let sa = mm.actor[source_actor_id];
     json[sa.name] = sa.collect_data();
     if(!Object.entries(json).length) {
       console.log('No data collected from the app.');
@@ -1009,30 +1011,30 @@ appn.methods.tree = {
       active_node.setTitle(mm.an.name);
     } else console.log('Node name is undefined.');
     
-    var np = active_node.getParent();
+    const np = active_node.getParent();
     if(np) {
-      np.data['folder'] = true;
+      np.data.folder = true;
     }
     
     //node FOLDER flag
     if(active_node.children && active_node.children.length) {
-      active_node['folder'] = true;
+      active_node.folder = true;
     } else if(active_node.hasOwnProperty('folder')) {
       delete active_node.folder;
     }
   },
 
   active_node: function(action) {
-    var action = action;
-    var actor = action.actor;
-    var ft = mm.fancytree;
-    var data = ft.data();
-    var d = data.uiFancytree;
-    var tree = d.tree;
+	const ac = action;
+	const actor = ac.actor;
+	const ft = mm.fancytree;
+	let data = ft.data();
+	const d = data.uiFancytree;
+	const tree = d.tree;
     if(!tree.activeNode) return;
-    var n = tree.activeNode;
-    var nd = n.data;
-    var data = {};
+    const n = tree.activeNode;
+    const nd = n.data;
+    data = {};
     if(!nd || !Object.entries(nd).length) {
       data[actor.name] = mm.json._default.form;
       console.log('No active node data.');
@@ -1094,7 +1096,7 @@ appn.methods.tree = {
       },
       
       createNode: function(event, data) {
-        var node = data.node,
+    	  let node = data.node,
           $tdList = $(node.tr).find(">td");
 
         // Span the remaining columns if it's a folder.
@@ -1111,7 +1113,7 @@ appn.methods.tree = {
       
       // Custom event handler that is triggered by keydown-handler and
       // context menu:
-      var refNode, moveMode,
+      let refNode, moveMode,
         tree = $(this).fancytree("getTree"),
         node = tree.getActiveNode();
 
@@ -1157,7 +1159,7 @@ appn.methods.tree = {
       case "addChild":
         node.editCreateNode("child", "");
         //ES added for app
-        node.data["folder"] = true;
+        node.data.folder = true;
         break;
       case "addSibling":
         node.editCreateNode("after", "");
@@ -1194,7 +1196,7 @@ appn.methods.tree = {
     //   console.log( e, $.ui.fancytree.eventToString(e) );
 
     }).on("keydown", function(e){
-      var cmd = null;
+      let cmd = null;
 
       // console.log(e.type, $.ui.fancytree.eventToString(e));
       switch( $.ui.fancytree.eventToString(e) ) {

@@ -28,17 +28,17 @@ appn.type = {
 				return document.querySelector('#' + this.id + ' ' + this.selector.event.click);
 			},
 			_set_href: function(url) {
-				var item = document.querySelector('#' + this.id + ' ' + this.selector.event.click);
+				const item = document.querySelector('#' + this.id + ' ' + this.selector.event.click);
 				item.href = url;
 			},			
 			_set_label: function(text) {
 				if(text === '' || null) return;
-				var item = document.querySelector('#' + this.id + ' ' + this.selector.label);
+				const item = document.querySelector('#' + this.id + ' ' + this.selector.label);
 				item.textContent = text;
 				item.style.display = '';
 			},
 			_set_prop: function(name, value) {
-				var item = document.querySelector('#' + this.id + ' ' + this.selector.event.click);
+				const item = document.querySelector('#' + this.id + ' ' + this.selector.event.click);
 				item.setAttribute(name, value);
 			}
 		}		
@@ -53,7 +53,7 @@ appn.type = {
 		method: {
 			_set_label: function(text) {
 				if(text === '' || null) return;
-				var item = document.querySelector('#' + this.id + ' ' + this.selector.label);
+				const item = document.querySelector('#' + this.id + ' ' + this.selector.label);
 				item.textContent = text;
 			}
 		}
@@ -83,11 +83,11 @@ appn.type = {
 				return this._control().value;
 			},
 			_set_value: function(value) {
-				return this._control().value = String(value);
+				this._control().value = String(value);
 			},
 			_set_label: function(text) {
 				if(text === '' || null) return;
-				var item = document.querySelector('#' + this.id + ' ' + this.selector.label);
+				const item = document.querySelector('#' + this.id + ' ' + this.selector.label);
 				item.textContent = text;
 			},
 			_get_error: function() {
@@ -102,7 +102,7 @@ appn.type = {
 				}
 			},
 			_show_error: function(rule) {
-				var item = document.querySelector('#' + this.id + ' ' + this.selector.error);
+				const item = document.querySelector('#' + this.id + ' ' + this.selector.error);
 				if(rule){
 					item.style.display = 'block';
 				} else {
@@ -121,25 +121,25 @@ appn.type = {
 		},		
 		method: {
 			_get_table: function() {
-				var a = $("#" + this.id + ' table');
+				const a = $("#" + this.id + ' table');
 				return a.DataTable();
 			},
 			_get_datatable: function() {
-				var a = $("#" + this.id + '_dataTable');
+				const a = $("#" + this.id + '_dataTable');
 				return a;
 			},
 			_get_value: function() {
-				var d = this._get_table.data();
-				var v = [];
-				for(var [k, v] in d) {
-				  v.push(v);
+				const d = this._get_table.data();
+				let a = [];
+				for(let [k, v] in d) {
+				  a.push(v);
 				}
-				return v;
+				return a;
 			},
 			_set_value: function(v) {
 				if(!v) return;
-//				var d = this._get_table.data();
-//				var v = [];
+//				let d = this._get_table.data();
+//				let v = [];
 			}
 		}
 	},
@@ -150,7 +150,7 @@ appn.type = {
 		method: {
 			_set_label: function(text) {
 				if(text === '' || null) return;
-				var item = document.querySelector('#' + this.id + ' ' + this.selector.label);
+				const item = document.querySelector('#' + this.id + ' ' + this.selector.label);
 				item.textContent = text;
 				item.style.display = '';
 			}
@@ -163,7 +163,7 @@ appn.type = {
 		method: {
 			_set_label: function(text) {
 				if(text === '' || null) return;
-				var item = document.querySelector('#' + this.id + ' ' + this.selector.label);
+				const item = document.querySelector('#' + this.id + ' ' + this.selector.label);
 				item.textContent = text;
 				item.style.display = '';
 			}
@@ -181,7 +181,7 @@ appn.type = {
 		method: {
 			_set_label: function(text) {
 				if(text === '' || null) return;
-				var item = document.querySelector('#' + this.id + ' ' + this.selector.label);
+				const item = document.querySelector('#' + this.id + ' ' + this.selector.label);
 				item.textContent = text;
 				item.style.display = '';
 			},
@@ -217,11 +217,11 @@ appn.type = {
 				return this._control().value;
 			},
 			_set_value: function(value) {
-				return this._control().value = String(value);
+				this._control().value = String(value);
 			},
 			_set_label: function(text) {
 				if(text === '' || null) return;
-				var item = document.querySelector('#' + this.id + ' ' + this.selector.label);
+				const item = document.querySelector('#' + this.id + ' ' + this.selector.label);
 				item.textContent = text;
 				item.style.display = '';
 			},
@@ -237,7 +237,7 @@ appn.type = {
 				}
 			},
 			_show_error: function(rule) {
-				var item = document.querySelector('#' + this.id + ' ' + this.selector.error);
+				const item = document.querySelector('#' + this.id + ' ' + this.selector.error);
 				if(rule){
 					item.style.display = 'block';
 				} else {
@@ -272,22 +272,22 @@ appn.type = {
 				return this._control().getAttribute('checked');
 			},	
 			_set_value: function(value) {
-				return this._control().setAttribute('checked', value);
+				this._control().setAttribute('checked', value);
 			},
 			_set_label: function(text) {
 				if(text === '' || null) return;
-				var item = document.querySelector('#' + this.id + ' ' + this.selector.label);
+				const item = document.querySelector('#' + this.id + ' ' + this.selector.label);
 				item.textContent = text;
 			},
 			_get_error: function() {
 				return document.querySelector('#' + this.id + ' ' + this.selector.error).textContent;
 			},
 			_get_last_radio_id: function() {
-				var a = this;
-				var p = a.parent_actor();
-				var rg = [];
-				for(var i in p.children) {
-					var ch_a = mm.actor[p.children[i]];
+				const a = this;
+				const p = a.parent_actor();
+				let rg = [];
+				for(let i in p.children) {
+					let ch_a = mm.actor[p.children[i]];
 					if(ch_a.group && ch_a.group === a.group) {
 						rg.push(ch_a.id);
 					}
@@ -303,8 +303,8 @@ appn.type = {
 				}
 			},
 			_show_error: function(rule) {
-				var a_id = this._get_last_radio_id();				
-				var item = document.querySelector('#' + a_id + ' ' + this.selector.error);
+				const a_id = this._get_last_radio_id();				
+				const item = document.querySelector('#' + a_id + ' ' + this.selector.error);
 				if(rule){
 					item.style.display = 'block';
 				} else {
@@ -331,7 +331,7 @@ appn.type = {
 				return document.querySelector('#' + this.id + ' ' + this.selector.datalist);
 			},
 			_get_value: function() {
-				var v = this._control().value;
+				const v = this._control().value;
 				if(v === 'false') {
 					return false;
 				}
@@ -341,11 +341,11 @@ appn.type = {
 				return v;
 			},
 			_set_value: function(value) {
-				return this._control().value = String(value);
+				this._control().value = String(value);
 			},
 			_set_label: function(text) {
 				if(text === '' || null) return;
-				var item = document.querySelector('#' + this.id + ' ' + this.selector.label);
+				const item = document.querySelector('#' + this.id + ' ' + this.selector.label);
 				item.textContent = text;
 				item.style.display = '';
 			},
@@ -361,7 +361,7 @@ appn.type = {
 				}
 			},
 			_show_error: function(rule) {
-				var item = document.querySelector('#' + this.id + ' ' + this.selector.error);
+				const item = document.querySelector('#' + this.id + ' ' + this.selector.error);
 				if(rule){
 					item.style.display = 'block';
 				} else {
@@ -369,10 +369,10 @@ appn.type = {
 				}
 			},
 			_add_options: function(json) {
-				var c = this._datalist();
-				var list = json;
-				for(var i in list) {
-				  var option = document.createElement("option");
+				const c = this._datalist();
+				const list = json;
+				for(let i in list) {
+				  let option = document.createElement("option");
 				  option.value = list[i].value;
 				  c.appendChild(option);
 				}
@@ -396,7 +396,7 @@ appn.type = {
 				return document.querySelector('#' + this.id + ' ' + this.selector.event.change);
 			},
 			_get_value: function() {
-				var v = this._control().value;
+				const v = this._control().value;
 				if(v === 'false') {
 					return false;
 				}
@@ -406,11 +406,11 @@ appn.type = {
 				return v;
 			},
 			_set_value: function(value) {
-				return this._control().value = String(value);
+				this._control().value = String(value);
 			},
 			_set_label: function(text) {
 				if(text === '' || null) return;
-				var item = document.querySelector('#' + this.id + ' ' + this.selector.label);
+				const item = document.querySelector('#' + this.id + ' ' + this.selector.label);
 				item.textContent = text;
 				item.style.display = '';
 			},
@@ -426,7 +426,7 @@ appn.type = {
 				}
 			},
 			_show_error: function(rule) {
-				var item = document.querySelector('#' + this.id + ' ' + this.selector.error);
+				const item = document.querySelector('#' + this.id + ' ' + this.selector.error);
 				if(rule){
 					item.style.display = 'block';
 				} else {
@@ -434,10 +434,10 @@ appn.type = {
 				}
 			},
 			_add_options: function(json) {
-				var c = this._control();
-				var list = json;
-				for(var i in list) {
-				  var option = document.createElement("option");
+				const c = this._control();
+				const list = json;
+				for(let i in list) {
+				  let option = document.createElement("option");
 				  option.text = list[i].text;
 				  option.selected = list[i].selected;
 				  option.value = list[i].value;
@@ -455,12 +455,12 @@ appn.type = {
 		},		
 		method: {
 			_get_label: function() {
-				var item = document.querySelector('#' + this.id + ' ' + this.selector.label);
+				const item = document.querySelector('#' + this.id + ' ' + this.selector.label);
 				return item.textContent;
 			},
 			_set_label: function(text) {
 				if(text === '' || null) return;
-				var item = document.querySelector('#' + this.id + ' ' + this.selector.label);
+				const item = document.querySelector('#' + this.id + ' ' + this.selector.label);
 				item.textContent = text;
 				item.style.display = '';
 			}
@@ -486,11 +486,11 @@ appn.type = {
 				return this._control().value;
 			},
 			_set_value: function(value) {
-				return this._control().value = String(value);
+				this._control().value = String(value);
 			},
 			_set_label: function(text) {
 				if(text === '' || null) return;
-				var item = document.querySelector('#' + this.id + ' ' + this.selector.label);
+				const item = document.querySelector('#' + this.id + ' ' + this.selector.label);
 				item.textContent = text;
 			},
 			_get_error: function() {
@@ -505,7 +505,7 @@ appn.type = {
 				}
 			},
 			_show_error: function(rule) {
-				var item = document.querySelector('#' + this.id + ' ' + this.selector.error);
+				const item = document.querySelector('#' + this.id + ' ' + this.selector.error);
 				if(rule){
 					item.style.display = 'block';
 				} else {
@@ -518,7 +518,7 @@ appn.type = {
 		method: {
 			_set_label: function(text) {
 				if(text === '' || null) return;
-				var item = document.querySelector('#' + this.id);
+				const item = document.querySelector('#' + this.id);
 				item.textContent = text;
 				item.style.display = '';
 			}
@@ -533,20 +533,20 @@ appn.type = {
 		},		
 		method: {
 			_get_tree: function() {
-				var a = $("#" + this.id);
+				const a = $("#" + this.id);
 				return a.fancytree('getTree');
 			},			
 			_get_value: function() {
-				var a = $("#" + this.id);
-		 		var t = a.fancytree('getTree');
-		 		var d = t.toDict(true);
+				const a = $("#" + this.id);
+				const t = a.fancytree('getTree');
+				const d = t.toDict(true);
 				return JSON.stringify(d);
 				
 			},
 			_get_data: function() {
-				var a = $("#" + this.id);
-		 		var t = a.fancytree('getTree');
-		 		var active_node = t.getActiveNode();
+				const a = $("#" + this.id);
+				const t = a.fancytree('getTree');
+				const active_node = t.getActiveNode();
 		 		if(!active_node || !active_node.data) return;
 		 		return active_node.data;
 			},

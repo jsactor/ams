@@ -18,16 +18,16 @@
 mm.t0 = performance.now();
 
   mm.play = new Play(); 
-  var app_roles = appn.role;
+  const app_roles = appn.role;
 
   // ROLES - mm.role - list roles and respective actions
-  for (var [key, data] of Object.entries(app_roles)) {	  	
+  for (let [key, data] of Object.entries(app_roles)) {	  	
     mm.role[key] = new Role(key, data); 
 	//console.log( "mm.role." + key+ " : " + mm.role[key] );
   }
 		
   // TYPES - mm.type - list of all component types
-  for (var [key, data] of Object.entries(appn.type)) {
+  for (let [key, data] of Object.entries(appn.type)) {
     mm.type[key] = {};		
 	mm.type[key] = new Type(data); 		
 	if(!data.hasOwnProperty('method')) {
@@ -40,10 +40,10 @@ mm.t0 = performance.now();
   }	
 		
   // ACTORS - mm.json.actor => mm.actor - list of all app components
-  for (var [id, data] of Object.entries(appn.actor)) {
-	var dt = data.type;		
-    var ao = [];
-	for (var key in mm.type[dt]) {
+  for (let [id, data] of Object.entries(appn.actor)) {
+	const dt = data.type;		
+    let ao = [];
+	for (let key in mm.type[dt]) {
 	  if(data.hasOwnProperty(key)) {
 		throw new TypeError ('Property mm.type.' + key + ' alredy exists in Fancy Tree\'s data object.');
       }
@@ -57,8 +57,8 @@ mm.t0 = performance.now();
 	mm.map[role] 	= [];
     $.each(mm.actor, function(id, actor) {		
 	  if(!actor.role) return;
-	  //var rs = actor.role.split(mm.delimiter.space);
-      var rs = cm.split_array(actor.role, mm.delimiter.space);
+	  //let rs = actor.role.split(mm.delimiter.space);
+      let rs = cm.split_array(actor.role, mm.delimiter.space);
 	  $.each(rs, function(index, r) {
 	    if(role !== r) return;
 		mm.map[role].push(id);
@@ -66,23 +66,23 @@ mm.t0 = performance.now();
 	});
   });
   // HANDLERS - create list of all handlers for each actor	
-  for (var [a_id, a] of Object.entries(mm.actor)) {
+  for (let [a_id, a] of Object.entries(mm.actor)) {
     Actor.handler(a);
   }
 
   // LOAD - 'load' event can be aplied to root actor only
   $(document).ready(function(event){ 	
     // first role should 'app'
-   	var actor = mm.actor[mm.map.app[0]];   	
-   	var actions = mm.role.app.actions;  	
-   	var action = $.each(actions, function(index, action) {
-      var events = cm.split_array(action.evnt, mm.delimiter.space);
+	const actor = mm.actor[mm.map.app[0]];   	
+	const actions = mm.role.app.actions;  	
+	let ac = $.each(actions, function(index, action) {
+      const events = cm.split_array(action.evnt, mm.delimiter.space);
    	  if( cm.in_array(mm.event_load, events) && action.actn === 'send') {
    	    return action;
    	  }
    	});
    	// first onload app action should be 'send'
-   	actor.action = action[0]; 
+   	actor.action = ac[0]; 
    	action = new appn.action[actor.action.actn](actor);
    	action.queue(mm.event_load);
   });
