@@ -19,11 +19,12 @@ var CLIPBOARD = null;
 var BASE_URL = '/Users/mbp/projects/ams/';
 var TREE_JSON = "app/data/tree.json";
 
-//this 3 lines for admin part of the app
+// these three APP_ lines are for admin part of the app
 var APP_ACTORS_JS = null;
 var APP_ROLES_JS = null;
-
 var APP_VERSION_ONLINE = true;
+//
+
 var RENDER_ACTORS = 'actors.js';
 var RENDER_TREE = 'tree.json';
 var RENDER_HTML = 'app.html';
