@@ -129,7 +129,9 @@ class Actor {
   	if(!type.selector || !type.selector.event) return;
   	const e = type.selector.event;		
   	const id = '#' + actor.id;
-  	for (let event in e) {  		
+  	for (let event in e) {
+  	  // jQuery allows cloning jQuery objects, 
+  	  // i.e. DOM elements with their all event listneners 
       $(id).on( event, e[event], actor, function(event) {
     	const a = mm.actor[actor.id];
     	const action = new appn.action.send(a);
@@ -137,5 +139,6 @@ class Actor {
     	action.queue(event.type, event);
       });      
   	}
-  };  
+  }; 
+   
 };

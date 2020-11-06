@@ -254,18 +254,7 @@ cm.render_template = function(object) {
 	const actor_type = obj.type;
 	
 	const template = cm.get_template(actor_type);
-	
-//ES REMINDER JS can read only uploaded text files, not local from machine
-
-//ES also see //ES APP TODO this is to pull view html files via ajax call.	
-//ES APP TODO can be an action which fetches all actor type html files,	
-//  stringifies them and adds to a template object as {key : string value};	
-//	const type = 'text/html';
-//	const url = 'app/views/' + actor_type + '.html';
-//	const template = await cm.fetch(url, type);	
-//	console.log(template);
-//  mm.views[actor_type] = template;
-	
+		
 	Mustache.parse(template);
 	m = Mustache.render(template, obj);	
 	return m;

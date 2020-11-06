@@ -52,39 +52,46 @@ mm.t0 = performance.now();
 	Object.assign(mm.actor, ao);
   }
 	
-  // MAP - mm.map - map each actor to respective role array
-  $.each(mm.role, function(role, data) {
-	mm.map[role] 	= [];
-    $.each(mm.actor, function(id, actor) {		
-	  if(!actor.role) return;
-	  //let rs = actor.role.split(mm.delimiter.space);
-      let rs = cm.split_array(actor.role, mm.delimiter.space);
-	  $.each(rs, function(index, r) {
-	    if(role !== r) return;
-		mm.map[role].push(id);
-	  });								
-	});
-  });
-  // HANDLERS - create list of all handlers for each actor	
-  for (let [a_id, a] of Object.entries(mm.actor)) {
-    Actor.handler(a);
-  }
-
+  // MAP - mm.map - map each actor to respective role array  
+  for (let role in mm.role) {
+	if (!mm.role.hasOwnProperty(role)) return; 
+	mm.map[role] = [];	
+	for (let id in mm.actor) {
+	  if (!mm.actor.hasOwnProperty(id)) return; 
+	  let actor = mm.actor[id];	
+	  if(actor.role) {
+        let rs = cm.split_array(actor.role, mm.delimiter.space);
+        rs.forEach(function(r, index) {
+	      if(role !== r) return;
+		  mm.map[role].push(id);
+	    });
+	  }
+	}		  
+  };
+  
   // LOAD - 'load' event can be aplied to root actor only
   $(document).ready(function(event){ 	
+	    
     // first role should 'app'
 	const actor = mm.actor[mm.map.app[0]];   	
-	const actions = mm.role.app.actions;  	
-	let ac = $.each(actions, function(index, action) {
+	const actions = mm.role.app.actions;
+   	let ac = actions.filter(function(action) {
       const events = cm.split_array(action.evnt, mm.delimiter.space);
-   	  if( cm.in_array(mm.event_load, events) && action.actn === 'send') {
-   	    return action;
-   	  }
-   	});
+     	if( cm.in_array(mm.event_load, events) && action.actn === 'send') {
+     	  return action;
+     	}
+  	});
+ 	
    	// first onload app action should be 'send'
    	actor.action = ac[0]; 
    	action = new appn.action[actor.action.actn](actor);
    	action.queue(mm.event_load);
+   	
+	// HANDLERS - create list of all handlers for each actor	
+	for (let [a_id, a] of Object.entries(mm.actor)) {
+	  Actor.handler(a);
+	}
+
   });
   
   mm.t1 = performance.now();

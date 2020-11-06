@@ -27,11 +27,12 @@ appn.action.send = Action_Send = class extends Action {
     let queue = [];
     if(!actor.role) return;
     const rs = actor.role.split(mm.delimiter.space);
-    $.each(rs, function(i, role) {
+    
+    rs.forEach(function(role, i) {
       const acs = mm.role[role].actions;
-      if(!acs) return;
-      $.each(acs, function(i, action) {
-    	const actn_evnt = action.evnt.split(mm.delimiter.space);   	
+      if(!acs) return; 
+      acs.forEach(function(action, i) {
+        const actn_evnt = action.evnt.split(mm.delimiter.space);   	
         if(cm.in_array(event_type, actn_evnt)) {
           console.log(`E [[ ${event_type} ]], A [[ ${action.actn} ]], R [[ ${role ? role : ''} ]], ID [[ ${actor.id} ]]` );
           if(action.mssg) {
@@ -45,8 +46,9 @@ appn.action.send = Action_Send = class extends Action {
           if(event_object) a.event = event_object;
           queue.push(a);
         }
-      });
+      });		
     });
+        
     if(!queue.length) return;  
     console.log('Action Queue Length :: ' + queue.length);    
 	for (let item of queue) {
@@ -93,31 +95,34 @@ appn.action.send = Action_Send = class extends Action {
     if(!action.trgt) return;
     const ta = actor.target(action);
     let actor_queue = [];
-    let action_queue = [];
-    $.each(ta, function(key, id) {
+    let action_queue = [];    
+    ta.forEach(function(id) {
       actor_queue = Action_Send.traverse(id, event_message, mm.actor, actor_queue);
     });
-    $.each(actor_queue, function(index, id) {
+      
+	actor_queue.forEach(function(id, index) {
       const roles = mm.actor[id].role;
-      if(!roles) return;
-      const rs = cm.split_array(roles, mm.delimiter.space);
-      $.each(rs, function(index, role) {
-    	const actions = mm.role[role].actions;
-        if(!actions || actions.length <= 0) return;
-        $.each(actions, function(index, action) {
-          const events = cm.split_array(action.evnt, mm.delimiter.space);
-          if(cm.in_array(event_message, events)) {
-            // role which tirggered this action, for console otput
-            action.role = role;
-            let a = {};
-            a.actor = mm.actor[id];
-            a.action = action;
-            if(event_object) a.event = event_object;
-            action_queue.push(a);
-          }
-        });
-      });
-    });
+        if(!roles) return;
+	    const rs = cm.split_array(roles, mm.delimiter.space);
+	    
+	    rs.forEach(function(role, index) {
+		  const actions = mm.role[role].actions;
+		  if(!actions || actions.length <= 0) return;
+		  
+		  actions.forEach(function(action, index) {
+		    const events = cm.split_array(action.evnt, mm.delimiter.space);
+		    if(cm.in_array(event_message, events)) {
+		      // role which tirggered this action, for console otput
+		      action.role = role;
+		      let a = {};
+		      a.actor = mm.actor[id];
+		      a.action = action;
+		      if(event_object) a.event = event_object;
+		      action_queue.push(a);
+		    }
+		  });		  
+		});	    
+	});
     if(!action_queue.length) return;
     // add action_queue to the beginning of the array
     // keep the previous queue of 'send' actions
@@ -267,19 +272,23 @@ appn.action.app_data = Action_App_Data = class extends Action {
 	mm._app_map = {}; 	
 	// 'eval' is safe to use in local environment with trusted data
 	mm._app_actor = eval(mm.json._app_actor);
-	mm._app_role = eval(mm.json._app_role);
-   	$.each(mm._app_role, function(role, data) { 
+	mm._app_role = eval(mm.json._app_role);	
+	for (let role in mm._app_role) {
+	  if (!mm.role.hasOwnProperty(role)) return; 
+	  console.log('role = ' + role );
    	  mm._app_map[role] = [];
-	  $.each(mm._app_actor, function(id, actor) {		
-	    if(!actor.role) return;
-		//let rs = actor.role.split(mm.delimiter.space);
-		let rs = cm.split_array(actor.role, mm.delimiter.space);
-		$.each(rs, function(index, r) {
-		  if(role !== r) return;
-	      mm._app_map[role].push(id);
-		});								
-	  });
-   	});	
+   	  
+   	  for (let id in mm._app_actor) {  		     		  
+   		if (!mm._app_actor.hasOwnProperty(id)) return; 
+   		let a = mm._app_actor[id];
+   		if(a.role) {
+   	      let rs = cm.split_array(a.role, mm.delimiter.space);
+   		  for (let r of rs) {
+   		    if(role == r) mm._app_map[role].push(a.id);
+   	      }	
+   		}
+   	  }	  
+	}
 	mm.director.proceed();
   }
 };

@@ -115,17 +115,17 @@ appn.type = {
 	datatable: {
 		selector: {
 			event: {
-				click: 'tbody tr',
+				click: '>tbody tr',
 				change: ''
 			}
 		},		
 		method: {
 			_get_table: function() {
-				const a = $("#" + this.id + ' table');
+				const a = document.querySelector("#" + this.id + ' table');
 				return a.DataTable();
 			},
 			_get_datatable: function() {
-				const a = $("#" + this.id + '_dataTable');
+				const a = document.querySelector("#" + this.id + '_dataTable');
 				return a;
 			},
 			_get_value: function() {
