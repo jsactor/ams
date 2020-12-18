@@ -151,3 +151,4 @@ package-lock.json
 public/css/normalize.min.css
 public/admin/css/normalize.min.css
 public/admin/core/core_EventListenerInClones.js
+public/admin/app/js/reducers.js

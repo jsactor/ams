@@ -22,7 +22,7 @@ Demo at [https://js.actor/ams](https://js.actor/ams)
 ## Freedom
 
 - No complex frameworks.
-- No more manual HTML.
+- No more writing HTML.
 - No more inline code.
 - No more manual data binding.
 - No more states to manage.
