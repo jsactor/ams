@@ -198,6 +198,7 @@ appn.role = {
   datatable : {
     actions : 
     [
+      // three actions below fetch and set data from the app under construction for the admin panel
       {
         actn : 'ajax',
         evnt : 'ja_app',
@@ -220,6 +221,7 @@ appn.role = {
         actn: 'app_data',
         evnt : 'ja_app'
       },
+      // three actions above fetch and set data from the app under construction for the admin panel
       {
         actn : 'plugin',
         evnt : 'ja_app',

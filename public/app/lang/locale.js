@@ -49,7 +49,7 @@ mm.lang = {
 		__checkbox: 'Checkbox',
 		__clone: 'clone',
 		__clone_test: 'Clone Test',
-		__copyright: 'Copyright © 2019, 2020 jsActor™',
+		__copyright: 'Copyright © 2019 - 2021 jsActor™',
 		__css: 'css',
 		__description: 'Description',
 		__disabled: 'disabled',
