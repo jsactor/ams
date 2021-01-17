@@ -8,6 +8,9 @@ Your web application development becomes mostly configuration and copy&paste.
 
 Demo at [https://js.actor/ams](https://js.actor/ams) 
 
+Medium.com stories: 
+[JavaScript Actor and Event Message Management System](https://medium.com/@js.actor/javascript-actor-and-event-message-management-system-b773c00d49f0)
+
 ## Installation
 
 - Download the files form [Github repository](https://github.com/jsactor/ams).
