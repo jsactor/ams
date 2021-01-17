@@ -43,7 +43,7 @@ Yes, your current codebase can be also converted into highly reusable actions wh
 
 ## Performance
 
-Very small Javascript library based on only six classes with a size of about 130Kb.
+Very small Javascript library based on only five classes with a size of about 130Kb.
 jsActor app loads in about a second or less. With a browser cache on even less than a half a second on both Wi-Fi and 4G.
 
 ## Concept
