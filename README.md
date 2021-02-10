@@ -27,7 +27,7 @@ Medium.com stories:
 - No complex frameworks.
 - No more writing HTML.
 - No more inline code.
-- No more manual data binding.
+- No more data binding by hands.
 - No more states to manage.
 - Javascript and JSON only.
 - Automated and generated.
