@@ -54,11 +54,17 @@ class Action {
 	    cm.map_data_entries_to_object(this, actor.action);
 	  }
   };
-  type(type) {
-	 
-  };
+  type(type) {};
   console() {
-  	console.log(`E [[ ${this.evnt} ]], A [[ ${this.actn} ]], R [[ ${this.role ? this.role : ''} ]], ID [[ ${this.actor.id} ]]` );
+  	console.log(`%cEVNT %c[[ ${this.evnt} ]], %cACTN %c[[ ${this.actn} ]], %cROLE %c[[ ${this.role ? this.role : ''} ]], %cID %c[[ ${this.actor.id} ]]`,
+  	  mm.console_css.evnt,
+  	  mm.console_css.evnt_v,
+  	  mm.console_css.actn,
+  	  mm.console_css.actn_v,
+  	  mm.console_css.role,
+  	  mm.console_css.role_v,
+  	  mm.console_css.id,
+  	  mm.console_css.id_v);
   };
 };
 

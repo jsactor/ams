@@ -34,7 +34,15 @@ appn.action.send = Action_Send = class extends Action {
       acs.forEach(function(action, i) {
         const actn_evnt = action.evnt.split(mm.delimiter.space);   	
         if(cm.in_array(event_type, actn_evnt)) {
-          console.log(`E [[ ${event_type} ]], A [[ ${action.actn} ]], R [[ ${role ? role : ''} ]], ID [[ ${actor.id} ]]` );
+          console.log(`%cEVNT %c[[ ${event_type} ]], %cACTN %c[[ ${action.actn} ]], %cROLE %c[[ ${role ? role : ''} ]], %cID %c[[ ${actor.id} ]]`,
+	  	    mm.console_css.evnt,
+	  	    mm.console_css.evnt_v,
+	  	    mm.console_css.actn,
+	  	    mm.console_css.actn_v,
+	  	    mm.console_css.role,
+	  	    mm.console_css.role_v,
+	  	    mm.console_css.id,
+	  	    mm.console_css.id_v);
           if(action.mssg) {
             console.log(`Event Message = [[ ${action.mssg} ]]`);
           }
@@ -52,11 +60,22 @@ appn.action.send = Action_Send = class extends Action {
     if(!queue.length) return;  
     console.log('Action Queue Length :: ' + queue.length);    
 	for (let item of queue) {
-      console.log(  'ACTN = ' +  item.action.actn + 
-	    ', EVNT = ' + item.action.evnt  + 
-	    ', MSSG = ' + (item.action.mssg ? item.action.mssg : ' ') + 
-	    ', TRGT = ' + item.action.trgt + 
-	    ', ROLE = ' + item.action.role);      
+      console.log( '%cACTN = %c' +  item.action.actn + 
+    	', %cEVNT = %c' + item.action.evnt  + 
+    	', %cMSSG = %c' + (item.action.mssg ? item.action.mssg : ' ') + 
+    	', %cTRGT = %c' + item.action.trgt + 
+    	', %cROLE = %c' + item.action.role,
+    	mm.console_css.actn,
+    	mm.console_css.actn_v,
+    	mm.console_css.evnt,
+    	mm.console_css.evnt_v,
+    	mm.console_css.mssg,
+    	mm.console_css.mssg_v,
+    	mm.console_css.id,
+    	mm.console_css.id_v,
+    	mm.console_css.role,
+    	mm.console_css.role_v
+      );     
 	}
     mm.director = new Director(queue);    
     mm.director.run(true);

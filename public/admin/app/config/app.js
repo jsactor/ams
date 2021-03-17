@@ -53,6 +53,20 @@ mm.temp			= {};
 mm.type			= {};
 mm.views		= {};
 
+// console.log styling
+mm.console_css = {
+  evnt : 	'color:BlueViolet;font-weight:bold',
+  evnt_v : 	'color:BlueViolet;font-weight:normal',
+  actn : 	'color:ForestGreen;font-weight:bold',
+  actn_v : 	'color:ForestGreen;font-weight:normal',
+  role : 	'color:MediumBlue;font-weight:bold',
+  role_v : 	'color:MediumBlue;font-weight:normal',
+  id : 		'color:Black;font-weight:bold',
+  id_v : 	'color:Black;font-weight:normal',
+  mssg : 	'color:DarkRed;font-weight:bold',
+  mssg_v : 	'color:DarkRed;font-weight:normal'
+};
+
 // path to app tree json 
 mm.path.json_tree 	= TREE_JSON;
 
@@ -620,19 +634,19 @@ mm.desc.action = {};
 mm.desc.action.send 			= 'Broadcast a unique custom event name to a specified target to syncronize actions of the target and all its children.'
 mm.desc.action.show 			= 'Show or hide an actor based on a boolean value or rule method returning true or false.';
 mm.desc.action.assign 			= 'Assign action.valu. Additional condition can be applied in action.rule method.';
-mm.desc.action.anchor 			= 'Create a file from local storage by name in "data" and an anchor to download it. Provide filename as "flnm", file "type".';
+mm.desc.action.anchor 			= 'Create a file from local storage by name in &quot;data&quot; and an anchor to download it. Provide filename as &quot;flnm&quot;, file &quot;type&quot;.';
 mm.desc.action.prevent_default 	= 'Cancel default beheviour of the DOM element like an anchor on click';
-mm.desc.action.store 			= 'Store data in local storage. Provide name in "strg" key. If no value provided in "strg" a local storage will be cleared.';
-mm.desc.action.render 			= 'Retrieve data from local storgage by "strg" name and render a file using "rqst" request method';
-mm.desc.action.ajax 			= 'Ajax call. For asynchronized option "wait: true". Key is for method rqst.';
+mm.desc.action.store 			= 'Store data in local storage. Provide name in &quot;strg&quot; key. If no value provided in &quot;strg&quot; a local storage will be cleared.';
+mm.desc.action.render 			= 'Retrieve data from local storgage by &quot;strg&quot; name and render a file using &quot;rqst&quot; request method';
+mm.desc.action.ajax 			= 'Ajax call. For asynchronized option &quot;wait: true&quot;. Key is for method rqst.';
 mm.desc.action.options 			= 'Assign list of optiond from action.json to a select field. Rule method can be added for additional condition.';
 mm.desc.action.map_data 		= 'Map/bind data from action.json to actors in DOM/HTML';
-mm.desc.action.export_data		= 'Collect data from app/branch, strigify and add it to the specified local storage.';
-mm.desc.action.activate_node 	= '! Read comment for "activate" method. Activate Fancy tree node.';
-mm.desc.action.update_data 		= 'Update data of a selected node with vlaues from a target object with a role provided in "trgt" key.';
+mm.desc.action.export_data		= 'Collect data from app/branch, stringify and add it to the specified local storage.';
+mm.desc.action.activate_node 	= '! Read comment for &quot;activate&quot; method. Activate Fancy tree node.';
+mm.desc.action.update_data 		= 'Update data of a selected node with vlaues from a target object with a role provided in &quot;trgt&quot; key.';
 mm.desc.action.localization 	= 'Apply locale specific lables and texts from mm.lang to all actors.';
 mm.desc.action.fetch			= 'Fetch data from server.';
-mm.desc.action.validate 		= 'Validate actor using provided "rule" method which returns true or false value. Provide an error message key from app/lang/locale.js file.';
+mm.desc.action.validate 		= 'Validate actor using provided &quot;rule&quot; method which returns true or false value. Provide an error message key from app/lang/locale.js file.';
 mm.desc.action.clone 			= 'Clone the actor to create new DOM element or elements.';
 mm.desc.action.remove_clone 	= 'Remove previously cloned actors and DOM elements.';
 mm.desc.action.plugin 			= 'Initiate third party plugin based on its type and template.';
